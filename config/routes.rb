@@ -9,7 +9,6 @@ RailsRumble::Application.routes.draw do
 # first created -> highest priority.
 
   post '/pusher/authentication' => 'users#pusher_authentication'
-  resources :game
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
