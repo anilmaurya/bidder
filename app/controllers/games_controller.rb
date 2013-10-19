@@ -1,5 +1,12 @@
 class GamesController < ApplicationController
+  before_filter :authenticate_user! 
 
+  def new
+    @game_invite = GameInvite.new
+
+  end
+
+  
   def practise
     @player  = current_user.players.build(initial_amount: INITIAL_AMOUNT)
     @game    = Game.create(practise: true, player_2_id: current_user.id, level: STARTING_LEVEL)
