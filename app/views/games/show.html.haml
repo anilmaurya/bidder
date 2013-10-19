@@ -1,5 +1,23 @@
-.span10
+.span10.position_relative
   .screen
-    .bar
-  .dashboard
-  .user_input
+    .player2
+    .player1
+    .bar_holder
+      .bar
+      .bar
+      .bar
+        .object
+      .bar
+      .bar
+.span12.bidding_form
+  .span4
+    .bid
+      = simple_form_for @bid, url: game_path(@game), html: { class: 'form-horizontal', id: 'bid_form'} do |f|
+        = f.input :amount, label: 'Bid Amount', class: 'input-mini'
+        = f.hidden_field :game_id, value: @game.id
+        = f.hidden_field :player_id, value: @player.id
+        = f.submit 'BID', class: 'btn btn-primary btn-large'
+  .span6
+    .previous_bids
+
+.user_input

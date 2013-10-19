@@ -93,5 +93,53 @@ body{
   margin-right: 30px;
 }
 .bar{
-  background-image: 'bar.png'
+  background-image: url('/assets/bar.png');
+  height: 10px;
+  width: 49px;
+  float: left;
+  margin-right: 7%;
+}
+.player1{
+  background-image: url('/assets/player1.png');
+  height: 146px;
+  width: 87px;
+  margin-right: 11%;
+}
+.player2{
+  background-image: url('/assets/player2.png');
+  height: 146px;
+  width: 87px;
+  float: right;
+}
+.bar_holder{
+  position: absolute;
+  left: 20%;
+  bottom: 0;
+  width: 100%;
+}
+.object{
+  background-image: url('water_bottle.png');
+  background-size: contain;
+  height: 50px;
+  position: absolute;
+  bottom: 21px;
+  width: 50px;
+}
+.position_relative{
+  position: relative;
+}
+.previous_bids{
+  border: 1px solid;
+  display: block;
+  min-height: 100px;
+  margin-left: 16%;
+}
+.bidding_form{
+  margin-top: 50px;
+}
+.bidding_form input{
+  width: 60px;
+}
+#bid_form{
+  text-align: center;
 }

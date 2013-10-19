@@ -3,4 +3,5 @@ class Player
   field :intial_amount, type: Integer
   field :current_amount, type: Integer
   belongs_to :user
+  has_many :bids
 end
