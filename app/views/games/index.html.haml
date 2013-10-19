@@ -1,14 +1,7 @@
 .span6
   .well
     %h3 Rules
-    %p #1 Its a Two Player Game. Both Player will have $30 at the start of Game.
-    %p #2 Players will Bid to buy object
-    %p #3 Object is placed at the center of table. 3 steps away from each player.
-    %p #4 Each Winning Bid get you object 1 step closer.
-    %p #5 Winning Bidder will loose the Bidding amount from his/her total.
-    %p #6 Bidding amount must be greater then $0. unless you have $0 left.
-    %p #7 Player who get the object will win.
-    %p #8 If object remain at center at the end of Game. Then its a Draw.
+    = render 'games/_rules'
 .span4.rule_container
   = link_to 'Play', new_game_path, class: 'btn btn-large btn-primary'
   = link_to 'Practise', practise_games_path, class: 'btn btn-large btn-primary'
