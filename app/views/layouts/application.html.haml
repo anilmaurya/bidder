@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title Rumble
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          = image_tag 'logo.png', class: 'logo'
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          %ul.nav.navbar-nav
+            %li= link_to 'About', '#'
+    .container
+      .row
+        = yield
