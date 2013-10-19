@@ -1,12 +1,22 @@
 :css
   .online_user_select{
-    width: 300px;   
-
-  }  
+    height: 400px;     
+  }
 .well
-  %select.selectpicker.online_user_select{multiple: 'multiple'}
+  = form_for @game_invite, remote: true, html: {class: 'form-horizontal'}  do |f|
+    %legend
+      Game Started
+    .control-group
+      .control-label
+        Online Player for invite
+      .controls 
+        %select.selectpicker.online_user_select.span4{multiple: 'multiple', name: 'game_invite[receiver_user_id]', size: 10}
      
-      
+    .form-actions
+      %button.btn.btn-warning{type: 'Submit'}
+        Invite User     
+      %button.btn.btn-danger
+        Cancel Invite
 :javascript  
   $(document).ready(function(){
       });   

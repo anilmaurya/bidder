@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,7 +9,7 @@ class User
   # Setup accessible (or protected) attributes for your model
   attr_accessible :password, :password_confirmation, :remember_me, :username
 
-  validate :username, uniqueness: true
+  validates :username, uniqueness: true
   has_many :players
   ## Database authenticatable
   field :username, type: String

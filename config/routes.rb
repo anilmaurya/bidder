@@ -1,4 +1,7 @@
 RailsRumble::Application.routes.draw do
+  resources :game_invites
+
+
   devise_for :users
   resources :games do
     collection do

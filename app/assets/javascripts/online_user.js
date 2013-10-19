@@ -18,7 +18,13 @@ update_select_box = function(all_users){
     $('.online_user_select').empty();
     Object.keys(all_users).forEach(function(key) {
       //build_option = '<option value=' + key + '>' + all_users[key] '</option>';
-      $('.online_user_select').append('<option value=' + key + '>' + all_users[key]['name'] + '</option>');
+      if(key != $('#current_user_id').val())
+      {
+        console.debug('Adding username');
+        console.debug(typeof(key));
+        console.debug(typeof($('#current_user_id').val()));
+        $('.online_user_select').append('<option value=' + key + '>' + all_users[key]['name'] + '</option>');
+      }
     })
   } 
 }

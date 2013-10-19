@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require online_user
+//= require game_invites
 //= require bootstrap-select.min
