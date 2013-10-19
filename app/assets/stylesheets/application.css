@@ -169,3 +169,7 @@ body{
 .hide{
   display: none;
 }
+.sign_up_form{
+  margin-left: 20% !important;
+  margin-top: 5%;
+}
