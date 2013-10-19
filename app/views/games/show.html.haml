@@ -1,7 +1,13 @@
 .span10.position_relative
   .screen
     .player2
+      = label_tag @game.player_2.username
+      = image_tag 'player2.png', size: '90x120'
+      %span.badge.badge-info.custom_badge= "$ " + @game.player_2.current_amount.to_s
     .player1
+      = label_tag "#{ @game.player_1.bot ? 'Computer' : @game.player_1.username }"
+      = image_tag 'player1.png', size: '90x120'
+      %span.badge.badge-info.custom_badge= "$ " + @game.player_1.current_amount.to_s
     .bar_holder
       .bar
       .bar
@@ -10,14 +16,12 @@
       .bar
       .bar
 .span12.bidding_form
-  .span4
+  .span4.game_move
     .bid
-      = simple_form_for @bid, url: game_path(@game), html: { class: 'form-horizontal', id: 'bid_form'} do |f|
+      = simple_form_for @bid, url: game_move_path(@game_move), method: :put, html: { class: 'form-horizontal', id: 'bid_form'}, remote: true do |f|
         = f.input :amount, label: 'Bid Amount', class: 'input-mini'
         = f.hidden_field :game_id, value: @game.id
-        = f.hidden_field :player_id, value: @player.id
+        = f.hidden_field :player_id, value: current_player.id
         = f.submit 'BID', class: 'btn btn-primary btn-large'
-  .span6
-    .previous_bids
 
 .user_input
