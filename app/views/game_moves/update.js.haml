@@ -1,5 +1,10 @@
 - if @result == 1
   ele = $('.bar .object').parent().prev()
-- else
+- elsif @result == 2
   ele = $('.bar .object').parent().next()
 ele.html($('.object'))
+$('.player1 .badge').text("$ #{ '%02d' % @player1.current_amount}")
+$('.player2 .badge').text("$ #{ '%02d' % @player2.current_amount}")
+$('#bid_amount').attr('readonly', false)
+$('#player_wait').hide()
+this.current_amount = #{@player.current_amount}

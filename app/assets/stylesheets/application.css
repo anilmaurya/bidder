@@ -166,3 +166,6 @@ body{
 .game_move{
   margin: auto 25% !important;
 }
+.hide{
+  display: none;
+}

@@ -16,3 +16,4 @@
 //= require online_user
 //= require game_invites
 //= require bootstrap-select.min
+//= require game
