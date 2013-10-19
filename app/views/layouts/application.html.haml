@@ -19,3 +19,4 @@
     .container
       .row
         = yield
+        = hidden_field_tag "current_user_id", current_user.try(:id)
