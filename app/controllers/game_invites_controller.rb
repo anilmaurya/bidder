@@ -6,8 +6,9 @@ class GameInvitesController < ApplicationController
       game_invite_params = params[:game_invite] || {} 
       @game_invite = GameInvite.new(game_invite_params.merge!(sender_user_id: current_user.id))
       if @game_invite.save
-        #Pusher['presence-invite_' + @game_invite.id].trigger('game_invite', {from: current_user.id})
-        render :json => {valid: true}
+        Pusher['presence-game_invite'].trigger('invite_from_user', {from_id: current_user.id, from_username: current_user.username, 
+              to: @game_invite.receiver_user_id, game_invite: @game_invite.id})
+        render :json => {valid: true, game_invite_id: @game_invite.id}
       else
         render :json => {valid: false, error_code: '1000', message: @game_invite.errors.full_messages.join(' | ')}
       end

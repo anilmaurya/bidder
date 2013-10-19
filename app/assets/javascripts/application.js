@@ -15,4 +15,5 @@
 //= require twitter/bootstrap
 //= require online_user
 //= require game_invites
+//= require games
 //= require bootstrap-select.min
