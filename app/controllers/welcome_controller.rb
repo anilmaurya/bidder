@@ -1,5 +1,11 @@
 class WelcomeController < ApplicationController
   def index
-    @user = User.new
+    
+    if current_user
+      redirect_to :games
+    else
+      @user = User.new
+    end
+    
   end
 end

@@ -14,7 +14,7 @@ gem 'cancan'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 2.3.0.1'
 
-gem "therubyracer"
+#gem "therubyracer"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,7 +23,7 @@ group :assets do
   gem "less-rails", '~> 2.3.1' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem 'less-rails-bootstrap', github: 'metaskills/less-rails-bootstrap', ref: 'cbe20d4593e21297f7bc3bc6bc6471a7ad18e890'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
