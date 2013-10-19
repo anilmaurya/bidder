@@ -16,6 +16,7 @@
         .collapse.navbar-collapse.navbar-ex1-collapse
           %ul.nav.navbar-nav
             %li= link_to 'About', '#'
+            %li= link_to 'Logout', destroy_user_session_path, method: :delete
     .container
       .row
         = yield
