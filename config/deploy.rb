@@ -76,7 +76,7 @@ after 'deploy:update_code' do
   run "cp #{shared_path}/config/mongoid.yml #{release_path}/config/mongoid.yml"
 
   # Compile Assets
-  run "cd #{release_path}; RAILS_ENV=production bundle exec /usr/local/bin/ruby /var/www/apps/railsrumble/shared/bundle/ruby/2.0.0/bin/rake assets:precompile"
+  run "cd #{release_path} && bundle exec rake assets:precompile"
 end
 
 # Restart Passenger
