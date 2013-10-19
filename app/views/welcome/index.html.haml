@@ -7,11 +7,13 @@
       .tab-content
         .tab-pane.active{id: 'tab1'}
           = simple_form_for @user, url: user_session_path, html: {class: 'form-horizontal sign_in_form'} do |f|
+            = devise_error_messages!
             = f.input :username
             = f.input :password
             = f.submit 'Sign In', class: 'btn btn-primary'
         .tab-pane{id: 'tab2'}
           = simple_form_for @user, url: registration_path(@user), html: {class: 'form-horizontal sign_in_form'} do |f|
+            = devise_error_messages!
             = f.input :username
             = f.input :password
             = f.input :password_confirmation

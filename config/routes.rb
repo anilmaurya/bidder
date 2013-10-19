@@ -1,8 +1,12 @@
 RailsRumble::Application.routes.draw do
   devise_for :users
-  resources :game
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  resources :games do
+    collection do
+      match 'practise'
+    end
+  end
+# The priority is based upon order of creation:
+# first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
