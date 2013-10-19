@@ -40,7 +40,7 @@ LINODE_SERVER_HOSTNAME = '66.228.57.69'
 # General Options
 
 set :bundle_flags,               "--deployment"
-
+set :rake, 'bundle exec rake'
 set :application,                "railsrumble"
 set :deploy_to,                  "/var/www/apps/railsrumble"
 set :normalize_asset_timestamps, false
