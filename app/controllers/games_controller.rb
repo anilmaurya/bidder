@@ -1,4 +1,4 @@
-class GameController < ApplicationController
+class GamesController < ApplicationController
 
   def practise
     @player2  = current_user.players.build(initial_amount: INITIAL_AMOUNT)

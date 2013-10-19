@@ -5,7 +5,7 @@ RailsRumble::Application.routes.draw do
       match 'practise'
     end
   end
-# The priority is based upon order of creation:
+#   The priority is based upon order of creation:
 # first created -> highest priority.
 
   post '/pusher/authentication' => 'users#pusher_authentication'
