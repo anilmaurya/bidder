@@ -1,9 +1,11 @@
 class GamesController < ApplicationController
 
   def practise
-    @player  = current_user.players.build(initial_amount: INITIAL_AMOUNT)
-    @game    = Game.create(practise: true, player_2_id: current_user.id, level: STARTING_LEVEL)
-    @bid     = @player.bids.build(game_id: @game.id)
+    @player1  = Player.create(current_amount: INITIAL_AMOUNT, bot: true)
+    @player2  = current_user.players.create(current_amount: INITIAL_AMOUNT)
+    @game    = Game.create(practise: true, player_1_id: @player1.id, player_2_id: @player2.id, level: STARTING_LEVEL)
+    @bid     = @player2.bids.build(game_id: @game.id)
+    @game_move = GameMove.create(game_id: @game.id)
     render 'show'
   end
 

@@ -99,13 +99,28 @@ body{
   float: left;
   margin-right: 7%;
 }
-.player1{
+.player1_image{
   background-image: url('/assets/player1.png');
   height: 146px;
   width: 87px;
   margin-right: 11%;
 }
+.player1{
+  float: left;
+  text-align: center;
+}
 .player2{
+  float: right;
+  text-align: center;
+}
+.player1 label, .player2 label{
+  font-size: 21px;
+  font-weight: bold;
+}
+.player1 img, .player2 img{
+  width: 100%;
+}
+.player2_image{
   background-image: url('/assets/player2.png');
   height: 146px;
   width: 87px;
@@ -142,4 +157,12 @@ body{
 }
 #bid_form{
   text-align: center;
+}
+.custom_badge{
+  height: 30px !important;
+  font-size: 20px !important;
+  line-height: 30px !important;
+}
+.game_move{
+  margin: auto 25% !important;
 }
