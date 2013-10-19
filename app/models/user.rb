@@ -9,6 +9,7 @@ class User
   attr_accessible :password, :password_confirmation, :remember_me, :username
 
   validate :username, uniqueness: true
+  has_many :players
   ## Database authenticatable
   field :username, type: String
   field :encrypted_password, :type => String, :default => ""
