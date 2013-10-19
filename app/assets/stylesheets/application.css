@@ -80,8 +80,15 @@ body{
   text-align: center;
 }
 .form-horizontal .control-label{
-  font-size: 21px;
+  font-size: 18px;
 }
 .align_right{
   text-align: right;
+}
+.rule_container{
+  text-align: right;
+  line-height: 300px;
+}
+.rule_container a{
+  margin-right: 30px;
 }
