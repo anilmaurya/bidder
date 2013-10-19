@@ -1,12 +1,16 @@
-:css
-  .online_user_select{
-    width: 300px;   
-
-  }  
 .well
-  %select.selectpicker.online_user_select{multiple: 'multiple'}
+  = form_tag "/", class: 'form-horizontal'  do |f|
+    %legend
+      Game Started
+    .control-group
+      .control-label
+        Online Player for invite
+      .controls 
+        %select.selectpicker.online_user_select.span4{multiple: 'multiple'}
      
-      
+    .form-actions
+      %button.btn.btn-warning{type: 'Submit'}
+        Invite User     
 :javascript  
   $(document).ready(function(){
       });   
