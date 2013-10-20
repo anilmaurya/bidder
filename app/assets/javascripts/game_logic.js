@@ -26,6 +26,7 @@ $(document).ready(function() {
     $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>'+ data['winner'] + '  Won!</strong>. Play Again.</p></div></div>')
     }
     $('#bid_form input[type="submit"]').attr('disabled', true);
+    //$('#bid_form').
     $('.play_again').show();
   } else {
     console.log(data);
