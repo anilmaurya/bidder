@@ -23,7 +23,7 @@ class GameMovesController < ApplicationController
     if @game_move.player_1_bid && @game_move.player_2_bid
       process_game
       p "move_#{another_player.id}"
-      Pusher['presence-game_move'].trigger("move_#{another_player.id}", {win: @win, result: @result, current_amount: @player.current_amount})
+      Pusher['presence-gamemove'].trigger("move_#{another_player.user.id.to_s}", {win: @win, result: @result, current_amount: @player.current_amount})
     else
       render nothing: true
     end

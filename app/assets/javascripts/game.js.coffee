@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
     $('#bid_amount').tooltip({placement: 'right', title: 'Enter Correct Bidding Amount', trigger: 'manual'})
+    console.log(pusher)
     game_move = pusher.subscribe('presence-game_move')
     game_move.bind 'move_' + @current_player_id, (data) ->
       alert 'aaaaaaaaaaaa'
