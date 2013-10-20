@@ -76,8 +76,9 @@ body{
 .navbar-header {
   float: left;
 }
-.sign_in_form{
+.sign_in_form, .sign_up_form_home{
   text-align: center;
+  font-style: oblique;
 }
 .form-horizontal .control-label{
   font-size: 18px;
