@@ -15,6 +15,9 @@ class User
   field :guest, type: Boolean, default: false
   field :username, type: String
   field :encrypted_password, :type => String, :default => ""
+ 
+  #Profile Pic
+  mount_uploader :image, ImageUploader 
 
   ## Recoverable
   field :reset_password_token,   :type => String

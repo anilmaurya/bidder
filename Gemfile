@@ -27,7 +27,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem 'carrierwave-mongoid'
+gem "jquery-fileupload-rails"
 gem 'capistrano', '~> 2.15'
 gem 'quiet_assets', group: :development
 

@@ -1,0 +1,13 @@
+.span4.well
+  .row
+    .span1
+      %img{src: current_user.image.url(:thumb)}
+    .span3 
+      %p= current_user.username
+      %p
+      %span.badge.badge-warning
+        #{@no_of_match} game played
+      %span.badge.badge-info
+        #{@no_of_win} game won
+  
+       
