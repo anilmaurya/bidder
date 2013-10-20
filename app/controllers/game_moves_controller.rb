@@ -22,6 +22,8 @@ class GameMovesController < ApplicationController
     @game_move.update_attributes(player_1_bid: @game.player_1.next_move(@game.player_2.current_amount, @game.level)) if @game.practise
     if @game_move.player_1_bid && @game_move.player_2_bid
       process_game
+      p "move_#{another_player.id}"
+      Pusher['presence-game_move'].trigger("move_#{another_player.id}", {win: @win, result: @result, current_amount: @player.current_amount})
     else
       render nothing: true
     end
@@ -60,4 +62,7 @@ class GameMovesController < ApplicationController
     end
   end
 
+  def another_player
+    current_user == @game.player_1.user ? @game.player_2 : @game.player_1
+  end
 end

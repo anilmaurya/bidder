@@ -23,7 +23,7 @@ class GameInvitesController < ApplicationController
       @game_invite.accept_status = true
       @game_invite.save!
       create_players
-      game = Game.create(player_1_id: @player1.id, player_2_id: @player2.id)
+      game = Game.create(player_1_id: @player1.id, player_2_id: @player2.id, level: STARTING_LEVEL)
 
       Pusher['presence-game_invite'].trigger("accepted_#{@game_invite.sender_user_id}", {from_username: @game_invite.receiver_user.username, game_id: game.id})
       render :json => {game_id: game.id.to_s, valid: true}
