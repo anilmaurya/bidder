@@ -13,13 +13,13 @@ end
 
 class GameInvite
   include Mongoid::Document
-  include Mongoid::Timestamps 
-  
-  field :accept_status, type: Boolean 
- 
+  include Mongoid::Timestamps
+
+  field :accept_status, type: Boolean
+
   belongs_to :sender_user, class_name: 'User'
-  belongs_to :receiver_user, class_name: 'User'  
+  belongs_to :receiver_user, class_name: 'User'
   validates :sender_user_id, :receiver_user_id, presence: true
-  validates_with ValidInviteValidator
-    
+  validates_with ValidInviteValidator, on: :create
+
 end
