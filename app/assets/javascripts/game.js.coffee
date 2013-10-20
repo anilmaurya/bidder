@@ -11,7 +11,7 @@ $(document).ready ->
           false
 
 window.check_validations = (e) ->
-    if (current_amount - parseInt($('#bid_amount').val())) < 0
+    if (parseInt($('#bid_amount').val() < 0))|| (parseInt($('#bid_amount').val() < 1 && current_amount > 0)) || (current_amount - parseInt($('#bid_amount').val())) < 0
       $('#bid_amount').tooltip('show')
       false
     else
