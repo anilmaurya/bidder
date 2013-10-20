@@ -5,7 +5,6 @@ class GamesController < ApplicationController
     @game_invite = GameInvite.new
   end
 
-
   def practise
     @player1  = Player.create(current_amount: INITIAL_AMOUNT, bot: true)
     @player2  = current_user.players.create(current_amount: INITIAL_AMOUNT)

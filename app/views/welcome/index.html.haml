@@ -21,3 +21,8 @@
             = f.input :password
             = f.input :password_confirmation
             = f.submit 'Sign Up', class: 'btn btn-primary'
+.span3.guest_form
+  = simple_form_for @user, url: user_session_path do |f|
+    = f.hidden_field :username, value: 'guest'
+    = f.hidden_field :password, value: 'guest123'
+    = f.submit 'Try as Guest', class: 'btn btn-large btn-primary'
