@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
     def get_invitation_request
       if current_user
         @invitation_request = GameInvite.where(receiver_user_id: current_user.id, accept_status: nil).first  
+      else
+        if params[:user]
+          @user = User.new(params[:user])     
+        else
+          @user = User.new 
+        end
       end
     end
 end
