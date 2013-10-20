@@ -5,6 +5,7 @@ class Player
   belongs_to :user
   has_many :bids
   delegate :username, to: :user, prefix: false
+  validates :current_amount, numericality: { greater_than_or_equal_to: 0 }
 
   def next_move(opponent_amount, level)
     if self.current_amount == 0
@@ -31,7 +32,15 @@ class Player
   end
 
   def update_amount(bid)
+    self.update_attribute('current_amount', (self.current_amount - bid))
+  end
+
+  def update_amount!(bid)
     self.update_attributes(current_amount: (self.current_amount - bid))
+  end
+
+  def revert_amount(bid)
+    self.update_attribute('current_amount', (self.current_amount + bid))
   end
 
   def random_between_1_to_15
