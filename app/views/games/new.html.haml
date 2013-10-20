@@ -1,20 +1,20 @@
 :css
   .online_user_select{
-    height: 400px;     
+    height: 400px;
   }
 .well
   = form_for @game_invite, remote: true, html: {class: 'form-horizontal'}  do |f|
     %legend
-      Game Started
+      %h3 Invite Online Players
     .control-group
       .control-label
-        Online Player for invite
-      .controls 
+        Online Players
+      .controls
         %select.selectpicker.online_user_select.span4{multiple: 'multiple', name: 'game_invite[receiver_user_id]', size: 10}
-     
+
     .form-actions
       %button.btn.btn-warning{type: 'Submit'}
-        Invite User     
-:javascript  
+        Invite User
+:javascript
   $(document).ready(function(){
-      });   
+      });
