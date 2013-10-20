@@ -19,6 +19,7 @@
             %li= link_to 'How To', '#', {class: 'show_rule_button', data:{toggle: 'modal', target: '.rule-point'}}
             %li= link_to 'Logout', destroy_user_session_path, method: :delete if current_user.present?
     .container
+      = show_pending_invitation_request(@invitation_request)
       .row
         = yield
         = hidden_field_tag "current_user_id", current_user.try(:id)

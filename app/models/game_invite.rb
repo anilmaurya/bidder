@@ -1,9 +1,13 @@
 class ValidInviteValidator < ActiveModel::Validator
   def validate(record)
-    record_to_bevalidated = record.class.where(sender_user_id: record.sender_user, accept_status: nil).first
+    record_to_bevalidated = record.class.where(sender_user_id: record.sender_user_id, accept_status: nil).first
     if record_to_bevalidated
       record.errors[:base] << "Other invitation are still in pending state. Can't create new invitation"
-    end 
+    end
+    record_to_bevalidated = record.class.where(sender_user_id: record.receiver_user_id, accept_status: nil).first
+    if record_to_bevalidated
+      record.errors[:base] << "Person whome you have sent game request have other invitation in pending state. Send others online user game request if any"
+    end
   end
 end
 
