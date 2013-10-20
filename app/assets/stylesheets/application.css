@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require twitter/bootstrap
+ *= require jquery.fileupload-ui
  *= require_tree .
  */
 body{
