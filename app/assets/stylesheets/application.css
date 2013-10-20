@@ -14,7 +14,7 @@
  *= require_tree .
  */
 body{
-  margin-top: 100px !important;
+  margin-top: 60px !important;
 }
 .logo{
   height: 50px;
@@ -107,12 +107,10 @@ body{
 .player1{
   float: left;
   text-align: center;
-  width: 26%;
 }
 .player2{
   float: right;
   text-align: center;
-  width: 26%;
 }
 .player1 label, .player2 label{
   font-size: 21px;
@@ -120,6 +118,7 @@ body{
 }
 .player1 img, .player2 img{
   width: 82%;
+  margin-bottom: 10px;
 }
 .player2_image{
   background-image: url('/assets/player2.png');
@@ -134,8 +133,9 @@ body{
   width: 100%;
 }
 .object{
-  background-image: url('water_bottle.png');
+  background-image: url('beer.jpg');
   background-size: contain;
+  background-repeat: no-repeat;
   height: 50px;
   position: absolute;
   bottom: 21px;
@@ -171,8 +171,10 @@ body{
   display: none;
 }
 .sign_up_form{
-  margin-left: 20% !important;
   margin-top: 5%;
+}
+.sign_in_form .user_username{
+  float: left;
 }
 .play_again{
   text-align: center;
@@ -200,4 +202,11 @@ body{
   background-image: -webkit-linear-gradient(top, #56c5eb, #1798c4); 
   background-image: -o-linear-gradient(top, #56c5eb, #1798c4); 
   background-image: linear-gradient(#56c5eb, #1798c4); 
-  border-color: #1798c4 #1798c4 hsl(195, 79%, 38%); color: #333 !important; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33); -webkit-font-smoothing: antialiased; }
+  border-color: #1798c4 #1798c4 hsl(195, 79%, 38%); color: #333 !important; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.33); 
+  -webkit-font-smoothing: antialiased; 
+}
+
+#myCarousel{
+  border: 20px solid;
+}
+

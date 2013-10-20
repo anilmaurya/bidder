@@ -18,7 +18,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
     def default_url
-      ActionController::Base.helpers.asset_path("default_profile.jpg")
+      #ActionController::Base.helpers.asset_path("default_profile.jpg")
     end
 
   # Process files as they are uploaded:
@@ -30,6 +30,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
     version :thumb do
+      #process :resize_to_fill  => [50, 50]
       #process :scale  => [50, 50]
     end
 
