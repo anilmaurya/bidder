@@ -25,7 +25,7 @@
       .row
         = yield
         = hidden_field_tag "current_user_id", current_user.try(:id)
-        = hidden_field_tag "current_username", current_user.try(:username)
+        = hidden_field_tag "current_username", current_user.try(:username).try(:humanize)
     .modal.hide.rule-point
       .modal-header
         %button.close{type: 'button', data:{dismiss: 'modal'}}

@@ -22,8 +22,16 @@ $(document).ready(function() {
     if(data['win'] == 'draw'){
     $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>Draw!!! Play Again</strong> .</p></div></div>')
     }
-    else{
-    $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>'+ data['winner'] + '  Won!</strong>. Play Again.</p></div></div>')
+    else
+    {
+      
+      $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>'+ data['winner'] + '  Won!</strong>. Play Again.</p></div></div>')
+      
+      username = $('#current_username').val();
+      if(username == data['winner'])
+      {
+        $('.twitter-share-button').removeClass('hide'); 
+      }
     }
     $('#bid_form input[type="submit"]').attr('disabled', true);
     //$('#bid_form').
