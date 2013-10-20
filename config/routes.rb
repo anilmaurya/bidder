@@ -11,8 +11,6 @@ RailsRumble::Application.routes.draw do
     collection do
       match 'practise'
     end
-
-    
   end
   resources :game_moves
 #   The priority is based upon order of creation:
