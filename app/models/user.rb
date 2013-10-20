@@ -7,11 +7,12 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :password, :password_confirmation, :remember_me, :username
+  attr_accessible :password, :password_confirmation, :remember_me, :username, :guest
 
   validates :username, uniqueness: true
   has_many :players
   ## Database authenticatable
+  field :guest, type: Boolean, default: false
   field :username, type: String
   field :encrypted_password, :type => String, :default => ""
 
