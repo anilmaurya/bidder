@@ -1,12 +1,18 @@
 RailsRumble::Application.routes.draw do
-  resources :game_invites
-
+  resources :game_invites do
+    member do
+      get 'accept_invitation'
+      get 'reject_invitation'
+    end
+  end
 
   devise_for :users
   resources :games do
     collection do
       match 'practise'
     end
+
+    
   end
   resources :game_moves
 #   The priority is based upon order of creation:
