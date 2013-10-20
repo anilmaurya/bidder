@@ -3,11 +3,11 @@
   .screen
     .player2
       = label_tag @player2.username
-      = image_tag @player2.user.image.url, size: '90x120'
+      = image_tag 'barney.png', size: '90x120'
       %span.badge.badge-info.custom_badge= "$ " + @player2.current_amount.to_s
     .player1
       = label_tag "#{ @player1.bot ? 'Computer' : @player1.username }"
-      = image_tag "#{ @player1.bot ? 'default_profile.jpg' : @player1.user.image.url}", size: '90x120'
+      = image_tag "homer.png", size: '90x120'
       %span.badge.badge-info.custom_badge= "$ " + @player1.current_amount.to_s
     .bar_holder
       .bar

@@ -106,12 +106,10 @@ body{
 .player1{
   float: left;
   text-align: center;
-  width: 26%;
 }
 .player2{
   float: right;
   text-align: center;
-  width: 26%;
 }
 .player1 label, .player2 label{
   font-size: 21px;
@@ -119,6 +117,7 @@ body{
 }
 .player1 img, .player2 img{
   width: 82%;
+  margin-bottom: 10px;
 }
 .player2_image{
   background-image: url('/assets/player2.png');
@@ -133,8 +132,9 @@ body{
   width: 100%;
 }
 .object{
-  background-image: url('water_bottle.png');
+  background-image: url('beer.jpg');
   background-size: contain;
+  background-repeat: no-repeat;
   height: 50px;
   position: absolute;
   bottom: 21px;
