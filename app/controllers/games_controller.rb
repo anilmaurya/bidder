@@ -19,7 +19,7 @@ class GamesController < ApplicationController
     @player1 = @game.player_1
     @player2 = @game.player_2
     @bid    = current_player.bids.build(game_id: @game.id)
-    @game_move = Game.find_or_create_by(game_id: @game.id)
+    @game_move = GameMove.find_or_create_by(game_id: @game.id)
   end
 
   def current_player
