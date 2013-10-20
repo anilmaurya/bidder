@@ -18,4 +18,5 @@
 //= require games
 //= require bootstrap-select.min
 //= require game
-//= require game_logic 
+//= require game_logic
+//= require jquery.bpopup.min

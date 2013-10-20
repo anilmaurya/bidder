@@ -24,13 +24,20 @@ $(document).ready(function() {
     }
     else
     {
-      
-      $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>'+ data['winner'] + '  Won!</strong>. Play Again.</p></div></div>')
-      
+      console.log(data);
       username = $('#current_username').val();
+      if(username == data['winner']){
+        $('#result_image').html('<img src="/assets/beer_win.png">').bPopup({position: [150,300]});
+      }
+      else{
+        $('#result_image').html('<img src="/assets/beer_lose.gif">').bPopup({position: [150,300]});
+      }
+
+      $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>'+ data['winner'] + '  Won!</strong>. Play Again.</p></div></div>');
+
       if(username == data['winner'])
       {
-        $('.twitter-share-button').removeClass('hide'); 
+        $('.twitter-share-button').removeClass('hide');
       }
     }
     $('#bid_form input[type="submit"]').attr('disabled', true);

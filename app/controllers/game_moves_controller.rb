@@ -29,7 +29,7 @@ class GameMovesController < ApplicationController
       process_game
       @new_game_move = GameMove.create(game_id: @game.id)
       unless @game.practise
-        Pusher['presence-gamemove'].trigger("move_#{another_player.user.id.to_s}", {win: @win, winner: @win ? @win.username.humanize : '' , result: @result, current_amount: @player.current_amount, new_game_move_path: "/game_moves/#{@new_game_move.id}", player_1_amount: @player1.current_amount, player_2_amount: @player2.current_amount})
+        Pusher['presence-gamemove'].trigger("move_#{another_player.user.id.to_s}", {win: @win, winner: @win ? @win.username.humanize : '' , result: @result, current_amount: @player.current_amount, new_game_move_path: "/game_moves/#{@new_game_move.id}", player_1_amount: @player1.current_amount, player_2_amount: @player2.current_amount, current_player: @player})
       end
     else
       render nothing: true
