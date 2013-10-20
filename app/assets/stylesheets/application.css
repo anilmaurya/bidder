@@ -77,8 +77,9 @@ body{
 .navbar-header {
   float: left;
 }
-.sign_in_form{
+.sign_in_form, .sign_up_form_home{
   text-align: center;
+  font-style: oblique;
 }
 .form-horizontal .control-label{
   font-size: 18px;
@@ -106,17 +107,19 @@ body{
 .player1{
   float: left;
   text-align: center;
+  width: 26%;
 }
 .player2{
   float: right;
   text-align: center;
+  width: 26%;
 }
 .player1 label, .player2 label{
   font-size: 21px;
   font-weight: bold;
 }
 .player1 img, .player2 img{
-  width: 100%;
+  width: 82%;
 }
 .player2_image{
   background-image: url('/assets/player2.png');
@@ -126,7 +129,7 @@ body{
 }
 .bar_holder{
   position: absolute;
-  left: 20%;
+  left: 24%;
   bottom: 0;
   width: 100%;
 }
