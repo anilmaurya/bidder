@@ -89,9 +89,6 @@ body{
   text-align: right;
   line-height: 300px;
 }
-.rule_container a{
-  margin-right: 30px;
-}
 .bar{
   background-image: url('/assets/bar.png');
   height: 10px;
@@ -165,4 +162,22 @@ body{
 }
 .game_move{
   margin: auto 25% !important;
+}
+.hide{
+  display: none;
+}
+.sign_up_form{
+  margin-left: 20% !important;
+  margin-top: 5%;
+}
+.play_again{
+  text-align: center;
+}
+#rule{
+  font-size: 18px;
+  font-style: oblique;
+}
+.rule-point{
+  width: 650px !important;
+  left: 45% !important;
 }

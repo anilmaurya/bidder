@@ -1,5 +1,17 @@
-- if @result == 1
-  ele = $('.bar .object').parent().prev()
+- if @win
+  $('#game_result').html('#{escape_javascript(render 'game_result')}')
+  $('#game_result').modal('show')
+  $('#bid_form input[type="submit"]').attr('disabled', true)
+  $('.play_again').show()
 - else
-  ele = $('.bar .object').parent().next()
-ele.html($('.object'))
+  - if @result == 1
+    ele = $('.bar .object').parent().prev()
+  - elsif @result == 2
+    ele = $('.bar .object').parent().next()
+  ele.html($('.object'))
+  $('.player1 .badge').text("$ #{ '%02d' % @player1.current_amount}")
+  $('.player2 .badge').text("$ #{ '%02d' % @player2.current_amount}")
+  $('#bid_amount').attr('readonly', false)
+  $('#bid_amount').val('')
+  this.current_amount = #{@player.current_amount}
+$('#player_wait').hide()

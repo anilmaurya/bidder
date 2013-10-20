@@ -11,6 +11,16 @@ class Game
 
   def change_draw_winner
     self.draw_winner = self.draw_winner == 1 ? 2 : 1
+    self.save
   end
 
+  def update_level(result)
+    case result
+    when 1
+      self.level -= 1
+    when 2
+      self.level += 1
+    end
+    self.save
+  end
 end

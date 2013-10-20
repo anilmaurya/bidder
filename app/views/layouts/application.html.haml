@@ -12,11 +12,11 @@
     %nav.navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
-          = image_tag 'logo.png', class: 'logo'
+          = link_to image_tag('logo.png', class: 'logo'), root_url
         .collapse.navbar-collapse.navbar-ex1-collapse
           %ul.nav.navbar-nav
             %li= link_to 'About', '#'
-            %li= link_to 'Rule', '#', {class: 'show_rule_button', data:{toggle: 'modal', target: '.rule-point'}}
+            %li= link_to 'How To', '#', {class: 'show_rule_button', data:{toggle: 'modal', target: '.rule-point'}}
             %li= link_to 'Logout', destroy_user_session_path, method: :delete if current_user.present?
     .container
       = show_pending_invitation_request(@invitation_request)
@@ -28,8 +28,8 @@
         %button.close{type: 'button', data:{dismiss: 'modal'}}
           x
         %h3
-          Rules 
-      .modal-body 
+          How To Play
+      .modal-body
         = render 'games/rules'
       .modal-footer
         %a.btn{data:{dismiss: 'modal'}}
