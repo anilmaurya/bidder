@@ -22,10 +22,10 @@ class GameMove
   end
 
   def update_player_1
-    self.game.player_1.update_amount(self.player_1_bid)
+    self.game.player_1.update_amount!(self.player_1_bid)
   end
 
   def update_player_2
-    self.game.player_2.update_amount(self.player_2_bid)
+    self.game.player_2.update_amount!(self.player_2_bid)
   end
 end

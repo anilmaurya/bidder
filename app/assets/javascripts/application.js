@@ -18,3 +18,4 @@
 //= require games
 //= require bootstrap-select.min
 //= require game
+//= require game_logic 

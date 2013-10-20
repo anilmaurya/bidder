@@ -1,3 +1,4 @@
+#game_result
 .span10.position_relative
   .screen
     .player2
@@ -30,8 +31,7 @@
       = link_to 'Play', new_game_path, class: 'btn btn-large btn-primary'
       = link_to 'Practise', practise_games_path, class: 'btn btn-large btn-primary'
 .user_input
-#game_result.modal.hide
 :coffeescript
   @current_amount = "#{current_player.current_amount}"
   @current_player_id = "#{current_player.id}"
-  @level = #{@game.level - 1}
+  @level = "#{@game.level - 1 }"
