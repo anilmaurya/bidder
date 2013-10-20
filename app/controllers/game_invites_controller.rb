@@ -1,6 +1,6 @@
 class GameInvitesController < ApplicationController
   before_filter :authenticate_user!
-  before filter :get_game_invite, only: [:accept_invitation, :reject_invitation]
+  before_filter :get_game_invite, only: [:accept_invitation, :reject_invitation]
   #Error code 1000 for some custom error, 1001 unexpected error contact admin
   def create
     if request.xhr?
@@ -24,8 +24,8 @@ class GameInvitesController < ApplicationController
       @game_invite.save
       game = Game.create(player_1_id: @game_invite.sender_user_id, player_2_id: @game_invite.receiver_user_id)
       
-      Pusher['presence-game_invite'].trigger("accepted_#{@game_invite.receiver_user_id}", {from_username: @game_invite.receiver_user.username, game_id: game})
-      render :json => {game_id: game, valid: true} 
+      Pusher['presence-game_invite'].trigger("accepted_#{@game_invite.sender_user_id.to_s}", {from_username: @game_invite.receiver_user.username, game_id: game.id})
+      render :json => {game_id: game.id.to_s, valid: true} 
     else
       flash[:error] = 'Invalid Request'
     end 
@@ -35,7 +35,7 @@ class GameInvitesController < ApplicationController
     if request.xhr?
       @game_invite.accept_status = false
       @game_invite.save
-      Pusher['presence-game_invite'].trigger("rejected_#{@game_invite.receiver_user_id}", {from_username: @game_invite.receiver_user.username})
+      Pusher['presence-game_invite'].trigger("rejected_#{@game_invite.sender_user_id.to_s}", {from_username: @game_invite.receiver_user.username})
     else
       flash[:error] = 'Invalid Request'
     end

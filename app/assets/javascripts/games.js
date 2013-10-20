@@ -22,7 +22,24 @@ $(document).ready(function(){
   $('body .container:last').on("click", '.accept_invitation', function(){
     $.ajax({
       type: 'GET', 
-      url: ''
+      url: $('.accept_invitation').data('url'),
+      success: function(data){
+        json_data = data;
+        game_show_link = "/game/" + data["game_id"] + "/show";
+        div_alert_block = "<div class='alert alert-block click_game_link'>";
+        div_alert_block = div_alert_block + "<button class='close' data-dismiss='alert' type='button'> x </button>";
+        div_alert_block = div_alert_block + "<h4 class='alert-heading'> Join Game</h4>";
+        div_alert_block = div_alert_block + "<p> Click on link " + game_show_link + " to join game</p>";
+        div_alert_block = div_alert_block + "<p> Do not leave or refresh page. Your game will lost</p>";
+        div_alert_block = div_alert_block +  "</div>";
+        $('.invitation_link').remove();
+        $('.container .row').before(div_alert_block);    
+        $('.click_game_link').alert();
+      },
+
+      error: function(data){
+        alert('Contact Admin'); 
+      }
     }); 
        
   }); 
@@ -30,7 +47,13 @@ $(document).ready(function(){
   $('body .container:last').on("click", '.reject_invitation', function(){
     $.ajax({
       type: 'GET', 
-      url: ''
+      url: $('.reject_invitation').data('url'),
+      success: function(data){
+        $('.invitation_link').remove();
+      },
+      error: function(data){
+        alert('error occur on server, contact admin'); 
+      }
     }); 
        
   });
@@ -44,9 +67,8 @@ $(document).ready(function(){
     div_alert_block = div_alert_block + "<p> Do not leave or refresh page. Your game will lost</p>";
     div_alert_block = div_alert_block +  "</div>";
     console.log('pusher accepting invitation');  
-    
     $('.container .row').before(div_alert_block);
-    
+    $('.accepted_game_link').alert();
   }); 
 
   game_invite.bind('rejected_' + current_user_id, function(data){
@@ -55,6 +77,10 @@ $(document).ready(function(){
     div_alert_block = div_alert_block + "<h4 class='alert-heading'> Reject Invitation from " + data["from_username"]  + "</h4>";
     div_alert_block = div_alert_block + "<p> Your game invitation get rejected</p>";
     div_alert_block = div_alert_block +  "</div>";
+    
+    $('.container .row').before(div_alert_block);
+    
+    $('.rejected_invitation').alert();
     console.log('game invitation got rejected');  
   });  
 
