@@ -191,3 +191,7 @@ body{
   margin-top: 15%;
   margin-left: 5% !important;
 }
+#myCarousel{
+  border: 20px solid;
+}
+
