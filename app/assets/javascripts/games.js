@@ -25,11 +25,12 @@ $(document).ready(function(){
       url: $('.accept_invitation').data('url'),
       success: function(data){
         json_data = data;
-        game_show_link = "/game/" + data["game_id"] + "/show";
+        
+        game_show_link = "<a  href=/games/" + data["game_id"] + "/show> Click on link to join game </a>" ;
         div_alert_block = "<div class='alert alert-block click_game_link'>";
         div_alert_block = div_alert_block + "<button class='close' data-dismiss='alert' type='button'> x </button>";
         div_alert_block = div_alert_block + "<h4 class='alert-heading'> Join Game</h4>";
-        div_alert_block = div_alert_block + "<p> Click on link " + game_show_link + " to join game</p>";
+        div_alert_block = div_alert_block + "<p> " + game_show_link + "</p>";
         div_alert_block = div_alert_block + "<p> Do not leave or refresh page. Your game will lost</p>";
         div_alert_block = div_alert_block +  "</div>";
         $('.invitation_link').remove();
@@ -59,11 +60,11 @@ $(document).ready(function(){
   });
 
   game_invite.bind('accepted_' + current_user_id, function(data){
-    game_show_link = "/game/" + data["game_id"] + "/show";
+    game_show_link = "<a  href=/games/" + data["game_id"] + "/show> Click on link to join game </a>" ;
     div_alert_block = "<div class='alert alert-block accepted_game_link'>";
     div_alert_block = div_alert_block + "<button class='close' data-dismiss='alert' type='button'> x </button>";
     div_alert_block = div_alert_block + "<h4 class='alert-heading'> Game Invitation Accepted</h4>";
-    div_alert_block = div_alert_block + "<p> Game invitation to " + data["from_username"] +" got accepted. Click on link " + game_show_link + " to join game</p>";
+    div_alert_block = div_alert_block + "<p> Game invitation to " + data["from_username"] +" got accepted." + game_show_link + "</p>";
     div_alert_block = div_alert_block + "<p> Do not leave or refresh page. Your game will lost</p>";
     div_alert_block = div_alert_block +  "</div>";
     console.log('pusher accepting invitation');  
