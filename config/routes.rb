@@ -5,7 +5,7 @@ RailsRumble::Application.routes.draw do
       get 'reject_invitation'
     end
   end
-  
+
   devise_for :users
   resources :games do
     collection do
@@ -15,6 +15,7 @@ RailsRumble::Application.routes.draw do
   resources :game_moves
   match ':username/profile' => 'users#profile', as: :user_profile
   match ':username/upload_profile' => 'users#upload_profile', via: :post
+  match '/about_us' => 'welcome#about_us', as: :about_us
 #   The priority is based upon order of creation:
 # first created -> highest priority.
 

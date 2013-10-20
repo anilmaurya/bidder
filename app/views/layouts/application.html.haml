@@ -15,7 +15,7 @@
           = link_to image_tag('logo.png', class: 'logo'), root_url
         .collapse.navbar-collapse.navbar-ex1-collapse
           %ul.nav.navbar-nav
-            %li= link_to 'About', '#'
+            %li= link_to 'About', about_us_path
             %li= link_to 'How To', '#', {class: 'show_rule_button', data:{toggle: 'modal', target: '.rule-point'}}
             - if current_user
               %li=# link_to 'Profile', user_profile_path(username: current_user.username)
