@@ -19,7 +19,19 @@ class UsersController < ApplicationController
   end
 
   def profile
+    
     @no_of_match = Game.or({player_1_id: current_user.id}, {player_2_id: current_user.id}).count
     @no_of_win = Game.where(result: current_user.id).count  
+  end
+
+  def upload_profile
+    @user = current_user
+    @user.image = params[:user][:image]
+    if @user.save 
+      flash[:error] = 'Successfully changed profile pic'
+    else
+      flash[:error] = 'Upload Profile pic not updated'
+    end
+    redirect_to :back
   end
 end
