@@ -16,6 +16,9 @@
 body{
   margin-top: 60px !important;
 }
+.row_top{
+  margin-top: 50px;
+}
 .logo{
   height: 50px;
 }
@@ -194,4 +197,6 @@ body{
 #myCarousel{
   border: 20px solid;
 }
-
+.online_user_select{
+  height: 400px;
+}

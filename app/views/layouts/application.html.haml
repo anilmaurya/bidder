@@ -18,13 +18,12 @@
             %li= link_to 'About', '#'
             %li= link_to 'How To', '#', {class: 'show_rule_button', data:{toggle: 'modal', target: '.rule-point'}}
             - if current_user
-              %li= link_to 'Profile', user_profile_path(username: current_user.username)
+              %li=# link_to 'Profile', user_profile_path(username: current_user.username)
               %li= link_to 'Logout', destroy_user_session_path, method: :delete
     .container
       = show_pending_invitation_request(@invitation_request)
-      .row
-        = yield
-        = hidden_field_tag "current_user_id", current_user.try(:id)
+      = yield
+      = hidden_field_tag "current_user_id", current_user.try(:id)
     .modal.hide.rule-point
       .modal-header
         %button.close{type: 'button', data:{dismiss: 'modal'}}

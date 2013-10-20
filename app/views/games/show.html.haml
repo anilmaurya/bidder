@@ -1,36 +1,37 @@
-#game_result
-.span12.position_relative
-  .screen
-    .player2
-      = label_tag @player2.username
-      = image_tag 'barney.png', size: '90x120'
-      %span.badge.badge-info.custom_badge= "$ " + @player2.current_amount.to_s
-    .player1
-      = label_tag "#{ @player1.bot ? 'Computer' : @player1.username }"
-      = image_tag "homer.png", size: '90x120'
-      %span.badge.badge-info.custom_badge= "$ " + @player1.current_amount.to_s
-    .bar_holder
-      .bar
-      .bar
-      .bar
-        .object
-      .bar
-      .bar
-.span12.bidding_form
-  .span4.game_move
-    .bid
-      = simple_form_for @bid, url: game_move_path(@game_move), method: :put, html: { class: 'form-horizontal', id: 'bid_form'}, remote: true do |f|
-        = f.input :amount, label: 'Bid Amount', class: 'mini'
-        = f.hidden_field :game_id, value: @game.id
-        = f.hidden_field :player_id, value: current_player.id
-        = f.submit 'BID', class: 'btn btn-primary btn-large'
-    .alert.hide{id: 'player_wait'}
-      = link_to 'X', '#', class: 'close', data: { dismiss: "alert"}
-      Waiting For Second player.
-    .play_again.hide
-      = link_to 'Play', new_game_path, class: 'btn btn-large btn-primary'
-      = link_to 'Practise', practise_games_path, class: 'btn btn-large btn-primary'
-.user_input
+.row_top
+  #game_result
+  .span12.position_relative
+    .screen
+      .player2
+        = label_tag @player2.username
+        = image_tag 'barney.png', size: '90x120'
+        %span.badge.badge-info.custom_badge= "$ " + @player2.current_amount.to_s
+      .player1
+        = label_tag "#{ @player1.bot ? 'Computer' : @player1.username }"
+        = image_tag "homer.png", size: '90x120'
+        %span.badge.badge-info.custom_badge= "$ " + @player1.current_amount.to_s
+      .bar_holder
+        .bar
+        .bar
+        .bar
+          .object
+        .bar
+        .bar
+  .span12.bidding_form
+    .span4.game_move
+      .bid
+        = simple_form_for @bid, url: game_move_path(@game_move), method: :put, html: { class: 'form-horizontal', id: 'bid_form'}, remote: true do |f|
+          = f.input :amount, label: 'Bid Amount', class: 'mini'
+          = f.hidden_field :game_id, value: @game.id
+          = f.hidden_field :player_id, value: current_player.id
+          = f.submit 'BID', class: 'btn btn-primary btn-large'
+      .alert.hide{id: 'player_wait'}
+        = link_to 'X', '#', class: 'close', data: { dismiss: "alert"}
+        Waiting For Second player.
+      .play_again.hide
+        = link_to 'Play', new_game_path, class: 'btn btn-large btn-primary'
+        = link_to 'Practice', practise_games_path, class: 'btn btn-large btn-primary'
+  .user_input
 :coffeescript
   @current_amount = "#{current_player.current_amount}"
   @current_player_id = "#{current_player.id}"
