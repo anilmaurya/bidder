@@ -23,7 +23,7 @@ class Player
     elsif level == 4 && self.current_amount < opponent_amount
       random_between_1_to_10
     elsif level == 4 && self.current_amount >= opponent_amount
-      random_between_1_to_15
+      random_between_1_to_10
     elsif level == 3
       magic_number(opponent_amount)
     else

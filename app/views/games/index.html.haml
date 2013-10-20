@@ -1,11 +1,12 @@
-- if current_user.guest
-  .alert.alert-block
-    = link_to 'X', '#', class: 'close', data: { dismiss: 'alert'}
-    %h4 To play with other online users, Please Sign up.
-.span9
-  .well
-    %h3 Rules
-    = render 'games/rules'
-.span3.rule_container
-  = link_to 'Play', new_game_path, class: 'btn btn-large btn-primary' unless current_user.guest
-  = link_to 'Practise', practise_games_path, class: 'btn btn-large btn-primary'
+.row_top
+  - if current_user.guest
+    .alert.alert-block
+      = link_to 'X', '#', class: 'close', data: { dismiss: 'alert'}
+      %h4 To play with other online users, Please Sign up.
+  .span8
+    .well
+      %h3 Rules
+      = render 'games/rules'
+  .span3.rule_container
+    = link_to 'Play', new_game_path, class: 'btn btn-large btn-primary' unless current_user.guest
+    = link_to 'Practise', practise_games_path, class: 'btn btn-large btn-primary'

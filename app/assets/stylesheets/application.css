@@ -16,6 +16,9 @@
 body{
   margin-top: 60px !important;
 }
+.row_top{
+  margin-top: 50px;
+}
 .logo{
   height: 50px;
 }
@@ -120,6 +123,9 @@ body{
   width: 82%;
   margin-bottom: 10px;
 }
+.player1 label, .player2 label{
+  margin-top: 8%;
+}
 .player2_image{
   background-image: url('/assets/player2.png');
   height: 146px;
@@ -209,4 +215,12 @@ body{
 #myCarousel{
   border: 20px solid;
 }
-
+.online_user_select{
+  height: 400px;
+}
+.carousel-control{
+  color: #ffffff !important;
+  text-decoration: none !important;
+  opacity: 0.9 !important;
+  filter: alpha(opacity=90) !important;
+}

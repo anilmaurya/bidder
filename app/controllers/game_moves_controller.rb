@@ -47,7 +47,7 @@ class GameMovesController < ApplicationController
     if @game.level == 1 || @game.level == 7
       @win = @game.level == 1 ? @game.player_1 : @game.player_2
     else
-      check_if_both_player_reaches_zero
+      check_if_any_player_reaches_zero
     end
     assign_result_to_game
   end
@@ -58,11 +58,12 @@ class GameMovesController < ApplicationController
     @player2 = @game.player_2
   end
 
-  def check_if_both_player_reaches_zero
-    if @player1.current_amount == 0 && @player2.current_amount == 0
-      if @game.level == 4
+  def check_if_any_player_reaches_zero
+    if @player1.current_amount == 0 || @player2.current_amount == 0
+      player = @player1.current_amount == 0 ? @player2 : @player1
+      if (@game.level + player.current_amount) == 4
         @win = 'draw'
-      elsif @game.level > 4
+      elsif (@game.level + player.current_amount) > 4
         @win = @player2
       else
         @win = @player1
