@@ -14,6 +14,7 @@ RailsRumble::Application.routes.draw do
   end
   resources :game_moves
   match ':username/profile' => 'users#profile', as: :user_profile
+  match ':username/upload_profile' => 'users#upload_profile', via: :post
 #   The priority is based upon order of creation:
 # first created -> highest priority.
 

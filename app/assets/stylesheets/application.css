@@ -10,10 +10,11 @@
  *
  *= require_self
  *= require twitter/bootstrap
+ *= require jquery.fileupload-ui
  *= require_tree .
  */
 body{
-  margin-top: 100px !important;
+  margin-top: 60px !important;
 }
 .logo{
   height: 50px;
@@ -170,8 +171,10 @@ body{
   display: none;
 }
 .sign_up_form{
-  margin-left: 20% !important;
   margin-top: 5%;
+}
+.sign_in_form .user_username{
+  float: left;
 }
 .play_again{
   text-align: center;
