@@ -119,6 +119,7 @@ GEM
     net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    newrelic_rpm (3.7.0.177)
     origin (1.1.0)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
@@ -202,6 +203,7 @@ DEPENDENCIES
   less-rails (~> 2.3.1)
   less-rails-bootstrap!
   mongoid
+  newrelic_rpm
   pusher
   quiet_assets
   rails (= 3.2.13)
