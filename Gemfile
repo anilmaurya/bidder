@@ -13,6 +13,7 @@ gem "haml-rails"
 gem 'cancan'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 2.3.0.1'
+gem 'newrelic_rpm'
 
 #gem "therubyracer"
 # Gems used only for assets and not required
