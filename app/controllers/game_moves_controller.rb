@@ -28,12 +28,14 @@ class GameMovesController < ApplicationController
     if @game_move.player_1_bid && @game_move.player_2_bid
       process_game
       @new_game_move = GameMove.create(game_id: @game.id)
-      unless @game.practise
-        Pusher['presence-gamemove'].trigger("move_#{another_player.user.id.to_s}", {win: @win, winner: @win ? @win.username.humanize : '' , result: @result, current_amount: @player.current_amount, new_game_move_path: "/game_moves/#{@new_game_move.id}", player_1_amount: @player1.current_amount, player_2_amount: @player2.current_amount, current_player: @player})
-      end
+      push_respose unless @game.practise
     else
       render nothing: true
     end
+  end
+
+  def push_response
+    Pusher['presence-gamemove'].trigger("move_#{another_player.user.id.to_s}", {win: @win, winner: @win ? @win.username.humanize : '' , result: @result, current_amount: @player.current_amount, new_game_move_path: "/game_moves/#{@new_game_move.id}", player_1_amount: @player1.current_amount, player_2_amount: @player2.current_amount, current_player: @player})
   end
 
   def process_game
@@ -61,22 +63,20 @@ class GameMovesController < ApplicationController
   def check_if_any_player_reaches_zero
     if @player1.current_amount == 0 || @player2.current_amount == 0
       if @player1.current_amount == 0
-        if (@game.level + @player2.current_amount) == 4
-          @win = 'draw'
-        elsif (@game.level + @player2.current_amount) > 4
-          @win = @player2
-        else
-          @win = @player1
-        end
+        set_winner(@player2, '+')
       elsif @player2.current_amount == 0
-        if (@game.level + @player1.current_amount) == 4
-          @win = 'draw'
-        elsif (@game.level - @player1.current_amount) > 4
-          @win = @player2
-        else
-          @win = @player1
-        end
+        set_winner(@player1, '-')
       end
+    end
+  end
+
+  def set_winner(player, opt)
+    if (@game.level + player.current_amount) == 4
+      @win = 'draw'
+    elsif @game.level.send(opt,player.current_amount) > 4
+      @win = @player2
+    else
+      @win = @player1
     end
   end
 
