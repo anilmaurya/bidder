@@ -10,7 +10,7 @@ We used Pusher for sending and receiving request.
 
 Game is live on 
 
-http://www.bidder.herokuapp.com
+http://bidder.herokuapp.com
 
 == TODO
 
