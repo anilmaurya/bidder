@@ -27,7 +27,7 @@
           = f.input :amount, label: 'Bid Amount', class: 'mini'
           = f.hidden_field :game_id, value: @game.id
           = f.hidden_field :player_id, value: current_player.id
-          = f.submit 'BID', class: 'btn btn-primary btn-large'
+          = f.submit 'BID', class: 'btn btn-primary btn-large', id:'submit_bid'
       .alert.hide{id: 'player_wait'}
         = link_to 'X', '#', class: 'close', data: { dismiss: "alert"}
         Waiting For Second player.
