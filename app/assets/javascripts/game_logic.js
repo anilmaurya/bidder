@@ -1,6 +1,14 @@
 var math;
 
 $(document).ready(function() {
+
+  $('#submit_bid').click(function(e){
+    if($('#bid_amount').val() <= 0){
+      e.preventDefault();
+      alert('Zero and Negative values not allowed.')
+    }
+  });
+
   var game_move;
   $('#bid_amount').tooltip({
     placement: 'right',

@@ -19,7 +19,7 @@
         .bar
         .bar
   .span12.bidding_form
-    %a.twitter-share-button.btn.btn-custom.tweet-button.hide{href: "https://twitter.com/intent/tweet?original_referer=http://innovative-minds.r13.railsrumble.com/&via=http://innovative-minds.r13.railsrumble.com&text=#{URI::escape('Won! the bidder game')}", target: '_blank'}
+    %a.twitter-share-button.btn.btn-custom.tweet-button.hide{href: "https://twitter.com/intent/tweet?original_referer=http://bidder.herokuapp.com//&via=http://bidder.herokuapp.com/&text=#{URI::escape('Won! the bidder game')}", target: '_blank'}
       Tweet it
     .span4.game_move
       .bid
@@ -27,7 +27,7 @@
           = f.input :amount, label: 'Bid Amount', class: 'mini'
           = f.hidden_field :game_id, value: @game.id
           = f.hidden_field :player_id, value: current_player.id
-          = f.submit 'BID', class: 'btn btn-primary btn-large'
+          = f.submit 'BID', class: 'btn btn-primary btn-large', id:'submit_bid'
       .alert.hide{id: 'player_wait'}
         = link_to 'X', '#', class: 'close', data: { dismiss: "alert"}
         Waiting For Second player.
