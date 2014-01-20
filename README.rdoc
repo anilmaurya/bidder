@@ -15,7 +15,9 @@ http://bidder.herokuapp.com
 == TODO
 
 1.Test cases(Minitest)
+
 2.Notification when user is on different browser.
+
 3.Chat with opponent.
 
 == Suggestion and Feedback
@@ -24,4 +26,4 @@ If you have any suggestion or feedback then please write to us anil@joshsoftware
 
 == Pull Request
 
-If you are intrested in working on bidder then why are you still waiting ? clone this repository and send your pull request immeadiately.
+If you are intrested in working on bidder then why are you still waiting ? fork this repository and send your pull request immeadiately.
