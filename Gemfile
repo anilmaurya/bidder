@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
-gem 'rails', '3.2.13'
+ruby "2.1.0"
+
+gem 'rails', '4.0.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mongoid'
+gem 'mongoid', github: 'mongoid/mongoid'
 gem 'pusher'
 gem 'devise'
 gem "haml", ">= 3.0.0"
@@ -13,20 +15,20 @@ gem 'cancan'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 2.3.0.1'
 gem 'newrelic_rpm'
+gem 'websocket-rails'
 
 #gem "therubyracer"
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem "less-rails", '~> 2.3.1' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-  gem 'less-rails-bootstrap', github: 'metaskills/less-rails-bootstrap', ref: 'cbe20d4593e21297f7bc3bc6bc6471a7ad18e890'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
+gem 'sass-rails'#,   '~> 4.0.0'
+gem 'coffee-rails'#, '~> 4.0.0'
+gem "less-rails"#, '~> 2.3.1' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'less-rails-bootstrap', github: 'metaskills/less-rails-bootstrap', ref: 'cbe20d4593e21297f7bc3bc6bc6471a7ad18e890'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', :platforms => :ruby
+gem 'rails_12factor', group: [:production]
 
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'uglifier'#, '>= 1.0.3'
 gem 'carrierwave-mongoid'
 gem "jquery-fileupload-rails"
 gem 'capistrano', '~> 2.15'
