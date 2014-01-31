@@ -3,9 +3,9 @@ var math;
 $(document).ready(function() {
 
   $('#submit_bid').click(function(e){
-    if($('#bid_amount').val() <= 0){
+    if(isNaN($('#bid_amount').val()) || $('#bid_amount').val() <= 0){
       e.preventDefault();
-      alert('Zero and Negative values not allowed.')
+      alert('Only values greater than 0 allowed.')
     }
   });
 
