@@ -12,3 +12,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/config/social_keys.yml
+/public
+/config/initializers/load_twitter_config.rb

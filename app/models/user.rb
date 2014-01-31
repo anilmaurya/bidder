@@ -4,10 +4,10 @@ class User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:twitter]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :password, :password_confirmation, :remember_me, :username, :guest, :image
+  attr_accessible :password, :password_confirmation, :remember_me, :username, :guest, :image, :name, :provider, :uid
 
   validates :username, uniqueness: true
   has_many :players
@@ -15,7 +15,7 @@ class User
   field :guest, type: Boolean, default: false
   field :username, type: String
   field :encrypted_password, :type => String, :default => ""
- 
+
   #Profile Pic
   mount_uploader :image, ImageUploader 
 
@@ -46,6 +46,9 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+  field :provider, type: String
+  field :uid, type: String
+  
   def email_required?
     false
   end
@@ -61,6 +64,16 @@ class User
     else
       where(conditions).first
     end
+  end
+
+  def self.from_omniauth(auth)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first 
+    unless user 
+      user = User.create(name:auth.extra.raw_info.name, provider:auth.provider, uid:auth.uid, email:auth.info.email, password:Devise.friendly_token[0,20])
+      user.remote_image_url = auth.extra.raw_info.profile_image_url
+      user.save!
+    end 
+    user 
   end
 
 end
