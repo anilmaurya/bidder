@@ -69,7 +69,7 @@ class User
   def self.from_omniauth(auth)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first 
     unless user 
-      user = User.create(name:auth.extra.raw_info.name, provider:auth.provider, uid:auth.uid, email:auth.info.email, password:Devise.friendly_token[0,20])
+      user = User.create(name:auth.extra.raw_info.name, provider:auth.provider, uid:auth.uid, email:auth.info.email, password:Devise.friendly_token[0,20], username: auth.info.nickname )
       user.remote_image_url = auth.extra.raw_info.profile_image_url
       user.save!
     end 
