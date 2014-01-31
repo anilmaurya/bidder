@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Rumble
+    %title Bidder
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag "application"
     = yield :css
@@ -18,6 +18,8 @@
             %li= link_to 'About', about_us_path
             %li= link_to 'How To', '#', {class: 'show_rule_button', data:{toggle: 'modal', target: '.rule-point'}}
             - if current_user
+              %li= image_tag current_user.image_url if current_user.image?
+              %li= link_to current_user.name, '#'
               %li=# link_to 'Profile', user_profile_path(username: current_user.username)
               %li= link_to 'Logout', destroy_user_session_path, method: :delete
     .container

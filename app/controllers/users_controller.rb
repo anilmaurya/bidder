@@ -18,8 +18,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def profile
-    
+  def profile  
     @no_of_match = Game.or({player_1_id: current_user.id}, {player_2_id: current_user.id}).count
     @no_of_win = Game.where(result: current_user.id).count  
   end

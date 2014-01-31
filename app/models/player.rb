@@ -5,6 +5,7 @@ class Player
   belongs_to :user
   has_many :bids
   delegate :username, to: :user, prefix: false
+  delegate :name, to: :user
   validates :current_amount, numericality: { greater_than_or_equal_to: 0 }
 
   def next_move(opponent_amount, level)

@@ -28,7 +28,7 @@ class GameMovesController < ApplicationController
     if @game_move.player_1_bid && @game_move.player_2_bid
       process_game
       @new_game_move = GameMove.create(game_id: @game.id)
-      push_respose unless @game.practise
+      push_response unless @game.practise
     else
       render nothing: true
     end
