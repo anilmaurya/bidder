@@ -60,7 +60,7 @@ $(document).ready(function(){
   });
 
   game_invite.bind('accepted_' + current_user_id, function(data){
-    game_show_link = "<a  href=/games/" + data["game_id"] + "> Click on link to join game </a>" ;
+    game_show_link = "<a  href=/games/" + data["game_id"]["$oid"] + "> Click on link to join game </a>" ;
     div_alert_block = "<div class='alert alert-block accepted_game_link'>";
     div_alert_block = div_alert_block + "<button class='close' data-dismiss='alert' type='button'> x </button>";
     div_alert_block = div_alert_block + "<h4 class='alert-heading'> Game Invitation Accepted</h4>";

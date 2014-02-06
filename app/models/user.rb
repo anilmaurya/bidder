@@ -7,7 +7,7 @@ class User
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:twitter]
 
   # Setup accessible (or protected) attributes for your model
-  #attr_accessible :password, :password_confirmation, :remember_me, :username, :guest, :image
+  #attr_accessible :password, :password_confirmation, :remember_me, :username, :guest, :image, :name, :email, :uid, :provider
 
   #validates :username, uniqueness: true
   has_many :players
@@ -16,6 +16,7 @@ class User
   field :username, type: String
   field :encrypted_password, :type => String, :default => ""
   field :name, type: String
+  field :email, type: String
 
   #Profile Pic
   mount_uploader :image, ImageUploader 
