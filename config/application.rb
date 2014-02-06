@@ -5,6 +5,11 @@ require "action_mailer/railtie"
 require "sprockets/railtie"
 Bundler.require(:default, Rails.env)
 
+require 'bson'
+require 'moped'
+
+Moped::BSON = BSON
+
 module RailsRumble
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

@@ -15,6 +15,7 @@ class User
   field :guest, type: Boolean, default: false
   field :username, type: String
   field :encrypted_password, :type => String, :default => ""
+  field :name, type: String
 
   #Profile Pic
   mount_uploader :image, ImageUploader 

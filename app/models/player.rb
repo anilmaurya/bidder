@@ -16,7 +16,7 @@ class Player
     elsif level == 2
       return self.current_amount
     elsif level == 6 && self.current_amount < opponent_amount
-      return self.current_amount
+      random_between_1_to_10
     elsif level == 6 && self.current_amount > opponent_amount
       return opponent_amount + 1
     elsif level == 5
@@ -33,11 +33,11 @@ class Player
   end
 
   def update_amount(bid)
-    self.update_attribute('current_amount', (self.current_amount - bid))
+    self.update_attribute('current_amount', (self.current_amount - bid)) if (self.current_amount - bid) >= 0
   end
 
   def update_amount!(bid)
-    self.update_attributes(current_amount: (self.current_amount - bid))
+    self.update_attributes(current_amount: (self.current_amount - bid)) if (self.current_amount - bid) >= 0
   end
 
   def revert_amount(bid)
@@ -56,15 +56,13 @@ class Player
   end
 
   def magic_number(opponent_amount)
-=begin
     if self.current_amount > opponent_amount
       number = ((self.current_amount - opponent_amount)..(self.current_amount - (self.current_amount - opponent_amount))).to_a.sample.to_i
       return number if number > 0
     end
     return self.current_amount - opponent_amount if (self.current_amount - opponent_amount ) > 0
     random_number
-=end
-    random_between_1_to_10
+    #random_between_1_to_10
   end
 
   def random_number
