@@ -20,3 +20,4 @@
 //= require game
 //= require game_logic
 //= require jquery.bpopup.min
+//= require turbolinks

@@ -33,7 +33,6 @@ GIT
       tzinfo (>= 0.3.37)
 
 GEM
-  remote: https://rubygems.org/
   specs:
     actionmailer (4.0.2)
       actionpack (= 4.0.2)
@@ -224,6 +223,8 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    turbolinks (2.1.0)
+      coffee-rails
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
@@ -269,5 +270,6 @@ DEPENDENCIES
   sass-rails
   simple_form
   therubyracer
+  turbolinks
   uglifier
   websocket-rails
