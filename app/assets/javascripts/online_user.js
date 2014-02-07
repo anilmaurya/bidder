@@ -1,4 +1,3 @@
-window.PUSHER_API_KEY = "0549d325d1840b3a4c05"
 window.online_users = {}
 
 window.update_users_list = function(user){

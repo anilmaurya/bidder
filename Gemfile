@@ -1,6 +1,7 @@
 #source 'https://rubygems.org'
-ruby "2.1.0"
+source 'https://rubygems.org'
 
+ruby "2.1.0"
 gem 'rails', '4.0.2'
 
 # Bundle edge Rails instead:
@@ -18,8 +19,15 @@ gem 'newrelic_rpm'
 gem 'websocket-rails'
 gem 'protected_attributes'
 
+gem 'bson'
+gem 'moped', github: "mongoid/moped"
 gem 'omniauth'
 gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
 
 #gem "therubyracer"
 # Gems used only for assets and not required
@@ -58,4 +66,4 @@ gem 'jquery-rails'
 
 # Gemfile
 gem 'turbolinks'
-
+gem 'jquery-turbolinks'
