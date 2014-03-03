@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
 
+ruby "2.0.0"
 gem 'rails', '4.0.2'
 
 # Bundle edge Rails instead:
@@ -62,3 +62,15 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+group :test do
+  gem 'minitest-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'm'
+  gem 'mocha'
+  gem 'minitest-metadata'
+  gem 'minitest-implicit-subject'
+  gem 'minitest-spec-expect'
+  gem 'minitest-rails-capybara'
+end
