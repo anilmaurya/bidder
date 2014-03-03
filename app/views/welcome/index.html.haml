@@ -11,9 +11,8 @@
 .row
   .span4.align_right
     = image_tag 'logo.png'
-    %h4 Show Your Bidding Skill
   .span8.sign_up_form
     = simple_form_for @user, url: user_session_path, html: {class: 'form-horizontal sign_in_form'} do |f|
-      =# f.input_field :username, placeholder: 'Twitter Handle', label: false, class: 'input-xlarge'
-      =# f.submit 'Play', class: 'btn btn-large btn-primary'
+      = f.input_field :username, placeholder: 'Guest Username', label: false, class: 'input-xlarge'
+      = f.submit 'Play', class: 'btn btn-large btn-primary'
       = link_to 'Sign in with Twitter', user_omniauth_authorize_path(:twitter), class: 'btn btn-large btn-primary'
