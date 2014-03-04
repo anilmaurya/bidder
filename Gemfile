@@ -1,7 +1,7 @@
 #source 'https://rubygems.org'
 source 'https://rubygems.org'
 
-ruby "2.1.0"
+ruby "2.0.0"
 gem 'rails', '4.0.2'
 
 # Bundle edge Rails instead:
@@ -9,7 +9,7 @@ gem 'rails', '4.0.2'
 
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'pusher'
-gem 'devise'
+gem 'devise', '3.0.0'
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem 'cancan'
@@ -67,3 +67,14 @@ gem 'jquery-rails'
 # Gemfile
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+group :test do
+  gem 'minitest-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'm'
+  gem 'mocha'
+  gem 'minitest-metadata'
+  gem 'minitest-implicit-subject'
+  gem 'minitest-spec-expect'
+  gem 'minitest-rails-capybara'
+end
