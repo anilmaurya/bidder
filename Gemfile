@@ -1,7 +1,7 @@
 #source 'https://rubygems.org'
 source 'https://rubygems.org'
 
-ruby "2.0.0"
+ruby "2.1.0"
 gem 'rails', '4.0.2'
 
 # Bundle edge Rails instead:
@@ -9,7 +9,7 @@ gem 'rails', '4.0.2'
 
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'pusher'
-gem 'devise', '3.0.0'
+gem 'devise', '3.1.0'
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem 'cancan'
