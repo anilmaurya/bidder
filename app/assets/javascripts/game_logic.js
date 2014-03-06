@@ -55,14 +55,17 @@ $(document).ready(function() {
     console.log(data);
     if (data['result'] == 1) {
         ele = $('.bar .object').parent().prev();
+        animate_game_move('.player1');
     } else if (data['result'] == 2) {
         ele = $('.bar .object').parent().next();
+        animate_game_move('.player2');
     }
     ele.html($('.object'));
     $('.player1 .badge').text("$ " + data['player_1_amount']);
     $('.player2 .badge').text("$ " + data['player_2_amount']);
     $('#bid_form').attr('action', data['new_game_move_path'])
     $('#bid_amount').attr('readonly', false);
+    $('#submit_bid').attr('disabled', false)
     $('#bid_amount').val('');
     this.current_amount = data['current_amount'];
   }

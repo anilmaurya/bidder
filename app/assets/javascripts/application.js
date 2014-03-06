@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require pusher
 //= require online_user
 //= require game_invites
 //= require games
@@ -20,3 +21,4 @@
 //= require game
 //= require game_logic
 //= require jquery.bpopup.min
+//= require jquery.transit.min

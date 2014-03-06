@@ -9,6 +9,7 @@ $(document).ready ->
     $('body #bid_form').submit (e) ->
         if check_validations(e)
           $('#bid_amount').attr('readonly', true)
+          $('#submit_bid').attr('disabled', true)
           $('#player_wait').show()
         else
           false
@@ -20,3 +21,8 @@ window.check_validations = (e) ->
     else
       $('#bid_amount').tooltip('hide')
       true
+
+window.animate_game_move = (e) ->
+  $(e).transition({ opacity: 1, scale: 1.5 });
+  $(e+" span").transition({ rotate: '+=360'}, 1000);
+  $(e).transition({ opacity: 1, scale: 1 });

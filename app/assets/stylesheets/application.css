@@ -110,17 +110,18 @@ body{
 .player1{
   float: left;
   text-align: center;
+  margin-bottom: 50px;
 }
 .player2{
   float: right;
   text-align: center;
+  margin-bottom: 50px;
 }
 .player1 label, .player2 label{
   font-size: 21px;
   font-weight: bold;
 }
 .player1 img, .player2 img{
-  width: 82%;
   margin-bottom: 10px;
 }
 .player1 label, .player2 label{
@@ -134,7 +135,7 @@ body{
 }
 .bar_holder{
   position: absolute;
-  left: 24%;
+  left: 18%;
   bottom: 0;
   width: 100%;
 }
