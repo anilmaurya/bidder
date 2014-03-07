@@ -23,6 +23,7 @@ gem 'bson'
 gem 'moped', github: "mongoid/moped"
 gem 'omniauth'
 gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+gem "github_api"
 
 group :development do
   gem "better_errors"

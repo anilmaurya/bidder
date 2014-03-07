@@ -225,7 +225,3 @@ body{
   opacity: 0.9 !important;
   filter: alpha(opacity=90) !important;
 }
-.about_us img{
-  float: left;
-  margin-right: 5%;
-}
