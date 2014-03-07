@@ -25,6 +25,8 @@ gem 'omniauth'
 gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
 gem "github_api"
 
+gem 'rails_12factor', group: :production
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
