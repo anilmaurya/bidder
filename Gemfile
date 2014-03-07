@@ -66,8 +66,6 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 # Gemfile
-gem 'turbolinks'
-gem 'jquery-turbolinks'
 group :test do
   gem 'minitest-rails'
   gem 'factory_girl_rails'

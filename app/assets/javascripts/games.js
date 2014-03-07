@@ -11,7 +11,7 @@ $(document).ready(function(){
     console.log(current_user_id);
     if(data['to']["$oid"] == current_user_id)
     {
-      div_alert_block = "<div class='alert alert-block invitation_link'>";
+      div_alert_block = "<div class='alert alert-block invitation_link' data-no-turbolink>";
       div_alert_block = div_alert_block + "<button class='close' data-dismiss='alert' type='button'> x </button>";
       div_alert_block = div_alert_block + "<h4 class='alert-heading'> Got Invitation from " + data["from_username"]  + "</h4>";
       div_alert_block = div_alert_block + "<p> Once You accept game invitation you will be get link to join Game. You can reject also if you does not want to play</p>";

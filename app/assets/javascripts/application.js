@@ -11,7 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require turbolinks
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require pusher

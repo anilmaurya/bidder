@@ -166,9 +166,6 @@ GEM
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-turbolinks (2.0.2)
-      railties (>= 3.1.0)
-      turbolinks
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
@@ -303,8 +300,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.1)
-      coffee-rails
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
@@ -343,7 +338,6 @@ DEPENDENCIES
   haml-rails
   jquery-fileupload-rails
   jquery-rails
-  jquery-turbolinks
   less-rails
   less-rails-bootstrap!
   m
@@ -367,6 +361,5 @@ DEPENDENCIES
   sass-rails
   simple_form
   therubyracer
-  turbolinks
   uglifier
   websocket-rails
