@@ -16,7 +16,7 @@ gem 'cancan'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 2.3.0.1'
 gem 'newrelic_rpm'
-gem 'websocket-rails'
+#gem 'websocket-rails'
 gem 'protected_attributes'
 
 gem 'bson'
@@ -45,7 +45,6 @@ gem 'uglifier'#, '>= 1.0.3'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'#, github: 'carrierwaveuploader/carrierwave-mongoid'
 gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 gem "jquery-fileupload-rails"
-gem 'capistrano', '~> 2.15'
 gem 'quiet_assets', group: :development
 
 gem 'jquery-rails'

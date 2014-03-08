@@ -8,5 +8,15 @@
     width: 100px;
     margin-right: 5%;
     border-radius: 50%;
+    }
+  img:hover{
+    transform:scale(1.5);
+    -ms-transform:scale(1.5); /* IE 9 */
+    -moz-transform:scale(1.5); /* Firefox */
+    -webkit-transform:scale(1.5); /* Safari and Chrome */
+    -o-transform:scale(1.5); /* Opera */
   }
+}
+#user_username{
+    height: 35px;
 }

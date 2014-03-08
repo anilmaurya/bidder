@@ -120,6 +120,8 @@ body{
 .player1 label, .player2 label{
   font-size: 21px;
   font-weight: bold;
+  text-align: left;
+  margin-left: 5px;
 }
 .player1 img, .player2 img{
   margin-bottom: 10px;
