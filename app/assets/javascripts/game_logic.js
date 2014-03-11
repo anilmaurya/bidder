@@ -5,7 +5,8 @@ $(document).ready(function() {
   $('#submit_bid').click(function(e){
     if(isNaN($('#bid_amount').val()) || $('#bid_amount').val() <= 0){
       e.preventDefault();
-      alert('Only values greater than 0 allowed.')
+      //alert('Only values greater than 0 allowed.')
+      $('#entered_zero_error').modal('show');
     }
   });
 
