@@ -9,7 +9,7 @@ class User
   # Setup accessible (or protected) attributes for your model
   #attr_accessible :password, :password_confirmation, :remember_me, :username, :guest, :image, :name, :email, :uid, :provider
 
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, presence: true
   has_many :players
   ## Database authenticatable
   field :guest, type: Boolean, default: false

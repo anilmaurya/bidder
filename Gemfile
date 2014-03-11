@@ -65,13 +65,15 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 # Gemfile
-group :test do
-  gem 'minitest-rails'
+group :development, :test do
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
+  gem 'minitest-rails'
+  gem 'minitest-matchers'
   gem 'm'
   gem 'mocha'
-  gem 'minitest-metadata'
+  gem 'database_cleaner'
+  gem 'valid_attribute'
+  #gem 'minitest-metadata'
   gem 'minitest-implicit-subject'
   gem 'minitest-spec-expect'
   gem 'minitest-rails-capybara'

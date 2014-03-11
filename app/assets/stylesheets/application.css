@@ -125,6 +125,8 @@ body{
 }
 .player1 img, .player2 img{
   margin-bottom: 10px;
+  height: 90px;
+  width: auto;
 }
 .player1 label, .player2 label{
   margin-top: 8%;
