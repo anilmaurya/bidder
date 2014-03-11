@@ -35,6 +35,15 @@
         = link_to 'Play', new_game_path, class: 'btn btn-large btn-primary'
         = link_to 'Practice', practise_games_path, class: 'btn btn-large btn-primary'
   .user_input
+#entered_zero_error.modal.hide.fade
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+    %h3 Invalid bidding amount.
+  .modal-body
+    %p Only values greater than 0 are allowed. Please re-enter a valid bidding amount.
+  .modal-footer
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
+    /%a.btn.btn-primary{href: "#"} Save changes
 :coffeescript
   @current_amount = "#{current_player.current_amount}"
   @current_player_id = "#{current_player.id}"
