@@ -6,10 +6,9 @@
   - if @win
     - if @win != 'draw'
       $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong> "#{@win.bot ? 'Computer' : @win.username.humanize} Won !!!"</strong> .</p></div></div>')
-      - if @win == @player
-        $('#result_image').html('<img src="/assets/beer_win.png">').bPopup({position: [150,300]});
-      - else
-        $('#result_image').html('<img src="/assets/beer_lose.gif">').bPopup({position: [150,300]});
+      - if @win.is_a?(Player)
+        $('#result').html('#{escape_javascript(render "winner")}')
+        $('#result').modal('show')
     - else
       $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong> "Draw !!! Play Again"</strong> .</p></div></div>')
     $('#bid_form input[type="submit"]').attr('disabled', true)

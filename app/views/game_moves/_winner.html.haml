@@ -1,0 +1,8 @@
+.modal-header
+  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+  %h2 #{@win.user ? (@win.name || @win.username).humanize : 'Computer'} Won !!!
+.modal-body
+  %a.twitter-share-button.btn.btn-custom.tweet-button{href: "https://twitter.com/intent/tweet?original_referer=http://www.playbidder.in//&via=http://www.playbidder.in/&text=#{URI::escape('Played bidder game!!!')}", target: '_blank'}
+    Tweet it
+  = link_to 'Play Again', new_game_path, class: 'btn btn-primary'
+  = link_to 'Close', '#', data: {dismiss: 'modal'}, class: 'btn pull-right'
