@@ -14,5 +14,4 @@
           Invite User
         = link_to 'Back to Practice', practise_games_path, class: 'btn btn-primary'
 :javascript
-  $(document).ready(function(){
-      });
+  var available_users = #{@available_users.to_json}

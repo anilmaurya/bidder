@@ -3,9 +3,8 @@ var math;
 $(document).ready(function() {
 
   $('#submit_bid').click(function(e){
-    if(isNaN($('#bid_amount').val()) || $('#bid_amount').val() <= 0){
+    if(isNaN($('#bid_amount').val()) || $('#bid_amount').val() < 1){
       e.preventDefault();
-      //alert('Only values greater than 0 allowed.')
       $('#entered_zero_error').modal('show');
     }
   });
@@ -30,24 +29,17 @@ $(document).ready(function() {
   if (data['winner']) {
     if(data['win'] == 'draw'){
     $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>Draw!!! Play Again</strong> .</p></div></div>')
+    $('#result').html('<div class="modal hide fade in" id="result" style="display: block;" aria-hidden="false"><div class="modal-header"><button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button> <h2> Draw !!!</h2></div> <div class="modal-body"><a class="twitter-share-button btn btn-custom tweet-button" href="https://twitter.com/intent/tweet?original_referer=http://www.playbidder.in//&amp;via=http://www.playbidder.in/&amp;text=Played%20bidder%20game!!!" target="_blank">Tweet it</a>     <a class="btn btn-primary" href="/games/new">Play Again</a>    <a class="btn pull-right" data-dismiss="modal" href="#">Close</a>   </div> </div>')
+    $('#result').modal('show')
     }
     else
     {
       console.log(data);
-      username = $('#current_username').val();
-      if(username == data['winner']){
-        $('#result_image').html('<img src="/assets/beer_win.png">').bPopup({position: [150,300]});
-      }
-      else{
-        $('#result_image').html('<img src="/assets/beer_lose.gif">').bPopup({position: [150,300]});
-      }
+      $('#result').html('<div class="modal hide fade in" id="result" style="display: block;" aria-hidden="false"><div class="modal-header"><button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button> <h2>' + data['winner']+' Won !!!</h2></div> <div class="modal-body"><a class="twitter-share-button btn btn-custom tweet-button" href="https://twitter.com/intent/tweet?original_referer=http://www.playbidder.in//&amp;via=http://www.playbidder.in/&amp;text=Played%20bidder%20game!!!" target="_blank">Tweet it</a>     <a class="btn btn-primary" href="/games/new">Play Again</a>    <a class="btn pull-right" data-dismiss="modal" href="#">Close</a>   </div> </div>')
+      $('#result').modal('show')
 
       $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>'+ data['winner'] + '  Won!</strong>. Play Again.</p></div></div>');
 
-      if(username == data['winner'])
-      {
-        $('.twitter-share-button').removeClass('hide');
-      }
     }
     $('#bid_form input[type="submit"]').attr('disabled', true);
     //$('#bid_form').
