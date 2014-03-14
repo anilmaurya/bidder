@@ -17,6 +17,7 @@ class User
   field :encrypted_password, :type => String, :default => ""
   field :name, type: String
   field :email, type: String
+  field :is_playing, type: Boolean, default: false
 
   #Profile Pic
   mount_uploader :image, ImageUploader 
@@ -50,7 +51,9 @@ class User
   # field :authentication_token, :type => String
   field :provider, type: String
   field :uid, type: String
-  
+
+  scope :available, ->{where(:is_playing => false)}
+
   def email_required?
     false
   end

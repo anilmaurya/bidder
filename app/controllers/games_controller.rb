@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   before_filter :authenticate_user!
 
   def new
+    @available_users = User.available.collect(&:id).collect(&:to_s).to_a
     @game_invite = GameInvite.new
   end
 
