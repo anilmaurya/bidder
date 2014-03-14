@@ -1,7 +1,7 @@
 #source 'https://rubygems.org'
 source 'https://rubygems.org'
 
-ruby "2.1.0"
+ruby "2.1.1"
 gem 'rails', '4.0.2'
 
 # Bundle edge Rails instead:
@@ -58,8 +58,8 @@ gem 'jquery-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+# Deploy with Mina
+ gem 'mina'
 
 # To use debugger
 # gem 'debugger'

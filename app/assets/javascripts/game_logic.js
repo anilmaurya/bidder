@@ -29,6 +29,8 @@ $(document).ready(function() {
   if (data['winner']) {
     if(data['win'] == 'draw'){
     $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>Draw!!! Play Again</strong> .</p></div></div>')
+    $('#result').html('<div class="modal hide fade in" id="result" style="display: block;" aria-hidden="false"><div class="modal-header"><button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button> <h2> Draw !!!</h2></div> <div class="modal-body"><a class="twitter-share-button btn btn-custom tweet-button" href="https://twitter.com/intent/tweet?original_referer=http://www.playbidder.in//&amp;via=http://www.playbidder.in/&amp;text=Played%20bidder%20game!!!" target="_blank">Tweet it</a>     <a class="btn btn-primary" href="/games/new">Play Again</a>    <a class="btn pull-right" data-dismiss="modal" href="#">Close</a>   </div> </div>')
+    $('#result').modal('show')
     }
     else
     {
