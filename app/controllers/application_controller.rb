@@ -13,10 +13,10 @@ class ApplicationController < ActionController::Base
   def set_user_status
     controller, action = params[:controller], params[:action]
 
-    playing_game =  (controller == 'games' and action == 'show') or
-    (controller == 'game_moves' and action == 'update')
-
-    if current_user and current_user.is_playing != playing_game
+    playing_game =  ( (controller == 'games' and action == 'show') or
+                      (controller == 'game_moves' and action == 'update') )
+                    
+    if current_user and current_user.is_playing != playing_game and !(controller == 'users' and action == 'pusher_authentication') 
       current_user.update_attribute(:is_playing, playing_game)
     end
   end
