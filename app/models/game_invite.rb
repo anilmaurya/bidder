@@ -20,6 +20,6 @@ class GameInvite
   belongs_to :sender_user, class_name: 'User'
   belongs_to :receiver_user, class_name: 'User'
   validates :sender_user_id, :receiver_user_id, presence: true
-  validates_with ValidInviteValidator, on: :create
+  #validates_with ValidInviteValidator, on: :create
 
 end

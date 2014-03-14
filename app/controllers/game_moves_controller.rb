@@ -35,7 +35,7 @@ class GameMovesController < ApplicationController
   end
 
   def push_response
-    Pusher['presence-gamemove'].trigger("move_#{another_player.user.id.to_s}", {win: @win, winner: @win ? @win.username.humanize : '' , result: @result, current_amount: @player.current_amount, new_game_move_path: "/game_moves/#{@new_game_move.id}", player_1_amount: @player1.current_amount, player_2_amount: @player2.current_amount, current_player: @player})
+    Pusher['presence-gamemove'].trigger("move_#{another_player.user.id.to_s}", {win: @win, winner: @win ? (@win.name || @win.username).humanize : '', result: @result, current_amount: @player.current_amount, new_game_move_path: "/game_moves/#{@new_game_move.id}", player_1_amount: @player1.current_amount, player_2_amount: @player2.current_amount, current_player: @player})
   end
 
   def process_game
@@ -71,9 +71,10 @@ class GameMovesController < ApplicationController
   end
 
   def set_winner(player, opt)
-    if (@game.level + player.current_amount) == 4
+    val =  @game.level.send(opt, player.current_amount)
+    if val == 4
       @win = 'draw'
-    elsif @game.level.send(opt,player.current_amount) > 4
+    elsif val > 4
       @win = @player2
     else
       @win = @player1

@@ -6,10 +6,9 @@
   - if @win
     - if @win != 'draw'
       $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong> "#{@win.bot ? 'Computer' : @win.username.humanize} Won !!!"</strong> .</p></div></div>')
-      - if @win == @player
-        $('#result_image').html('<img src="/assets/beer_win.png">').bPopup({position: [150,300]});
-      - else
-        $('#result_image').html('<img src="/assets/beer_lose.gif">').bPopup({position: [150,300]});
+      - if @win.is_a?(Player)
+        $('#result').html('#{escape_javascript(render "winner")}')
+        $('#result').modal('show')
     - else
       $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong> "Draw !!! Play Again"</strong> .</p></div></div>')
     $('#bid_form input[type="submit"]').attr('disabled', true)
@@ -17,13 +16,16 @@
   - else
     - if @result == 1
       ele = $('.bar .object').parent().prev()
+      animate_game_move('.player1')
     - elsif @result == 2
       ele = $('.bar .object').parent().next()
+      animate_game_move('.player2');
     ele.html($('.object'))
     $('.player1 .badge').text("$ #{ '%02d' % @player1.current_amount}")
     $('.player2 .badge').text("$ #{ '%02d' % @player2.current_amount}")
     $('#bid_form').attr('action', "/game_moves/#{@new_game_move.id}")
     $('#bid_amount').attr('readonly', false)
+    $('#submit_bid').attr('disabled', false)
     $('#bid_amount').val('')
     this.current_amount = #{@player.current_amount}
 $('#player_wait').hide()

@@ -32,7 +32,11 @@ update_select_box = function(all_users){
 
 $(document).ready(function(){
   var is_user_present = $('#current_user').val()
-  window.pusher = new Pusher(PUSHER_API_KEY, {authEndpoint: '/pusher/authentication', authTransport: 'ajax'});
+  Pusher.host = '54.186.39.143'
+  Pusher.httpHost = '54.186.39.143'
+  Pusher.ws_port = '8080'
+  Pusher.wss_port = '8080'
+  window.pusher = new Pusher(PUSHER_API_KEY, {authEndpoint: '/pusher/authentication', authTransport: 'ajax', activityTimeout: 120000, disableStats: true});
   window.login_user_channel = pusher.subscribe('presence-user');
   login_user_channel.bind('pusher:subscription_succeeded', function(members) {
     console.debug(members.me.info.name);

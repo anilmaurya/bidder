@@ -110,18 +110,23 @@ body{
 .player1{
   float: left;
   text-align: center;
+  margin-bottom: 50px;
 }
 .player2{
   float: right;
   text-align: center;
+  margin-bottom: 50px;
 }
 .player1 label, .player2 label{
   font-size: 21px;
   font-weight: bold;
+  text-align: left;
+  margin-left: 5px;
 }
 .player1 img, .player2 img{
-  width: 82%;
   margin-bottom: 10px;
+  height: 90px;
+  width: auto;
 }
 .player1 label, .player2 label{
   margin-top: 8%;
@@ -134,7 +139,7 @@ body{
 }
 .bar_holder{
   position: absolute;
-  left: 24%;
+  left: 18%;
   bottom: 0;
   width: 100%;
 }
@@ -223,8 +228,4 @@ body{
   text-decoration: none !important;
   opacity: 0.9 !important;
   filter: alpha(opacity=90) !important;
-}
-.about_us img{
-  float: left;
-  margin-right: 5%;
 }

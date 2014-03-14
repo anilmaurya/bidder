@@ -5,7 +5,6 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag "application"
     = yield :css
-    = javascript_include_tag "http://js.pusher.com/2.1/pusher.min.js"
     = yield :js
     = csrf_meta_tags
   %body
@@ -15,11 +14,12 @@
           = link_to image_tag('logo.png', class: 'logo'), root_url
         .collapse.navbar-collapse.navbar-ex1-collapse
           %ul.nav.navbar-nav
-            %li= link_to 'About', about_us_path
-            %li= link_to 'How To', '#', {class: 'show_rule_button', data:{toggle: 'modal', target: '.rule-point'}}
+            %li= link_to 'About Us', about_us_path
+            %li= link_to 'How To Play', '#', {class: 'show_rule_button', data:{toggle: 'modal', target: '.rule-point'}}
+          %ul.nav.pull-right
             - if current_user
               %li= image_tag current_user.image_url if current_user.image?
-              %li= link_to current_user.name, '#'
+              %li= link_to (current_user.name || current_user.username), '#'
               %li=# link_to 'Profile', user_profile_path(username: current_user.username)
               %li= link_to 'Logout', destroy_user_session_path, method: :delete
     .container
@@ -28,7 +28,7 @@
         = yield
         = hidden_field_tag "current_user_id", current_user.try(:id)
         = hidden_field_tag "current_username", current_user.try(:username).try(:humanize)
-    .modal.hide.rule-point
+    .modal.fade.hide.rule-point
       .modal-header
         %button.close{type: 'button', data:{dismiss: 'modal'}}
           x

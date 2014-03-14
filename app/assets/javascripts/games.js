@@ -3,15 +3,20 @@ $(document).ready(function(){
   current_user_id = $('#current_user_id').val();
   game_invite = pusher.subscribe('presence-game_invite');
   game_invite.bind('invite_from_user', function(data){
+    console.log('checking invite from user');
     current_user_id = $('#current_user_id').val();
-    if(data['to'] == current_user_id)
+    console.log(data['to']);
+    console.log(data['game_invite']);
+    console.log(data['game_invite']['$oid']);
+    console.log(current_user_id);
+    if(data['to']["$oid"] == current_user_id)
     {
-      div_alert_block = "<div class='alert alert-block invitation_link'>";
+      div_alert_block = "<div class='alert alert-block invitation_link' data-no-turbolink>";
       div_alert_block = div_alert_block + "<button class='close' data-dismiss='alert' type='button'> x </button>";
       div_alert_block = div_alert_block + "<h4 class='alert-heading'> Got Invitation from " + data["from_username"]  + "</h4>";
       div_alert_block = div_alert_block + "<p> Once You accept game invitation you will be get link to join Game. You can reject also if you does not want to play</p>";
-      div_alert_block = div_alert_block + "<p> <a class='btn btn-success accept_invitation' href='#' data-url=/game_invites/" + data['game_invite']  + "/accept_invitation> Accept Game Invitation </a> &nbsp;";
-      div_alert_block = div_alert_block + "<a class='btn btn-danger reject_invitation' href='#' data-url=/game_invites/" + data['game_invite']  + "/reject_invitation > Reject Game Invitation </a></p>";
+      div_alert_block = div_alert_block + "<p> <a class='btn btn-success accept_invitation' href='#' data-url=/game_invites/" + data['game_invite']["$oid"]  + "/accept_invitation> Accept Game Invitation </a> &nbsp;";
+      div_alert_block = div_alert_block + "<a class='btn btn-danger reject_invitation' href='#' data-url=/game_invites/" + data['game_invite']["$oid"]  + "/reject_invitation > Reject Game Invitation </a></p>";
       div_alert_block = div_alert_block +  "</div>";
       console.log(div_alert_block);
       $('.container .row').before(div_alert_block);
