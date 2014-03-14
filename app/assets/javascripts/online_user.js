@@ -2,8 +2,9 @@ window.online_users = {}
 
 window.update_users_list = function(user){
   console.log(user.id)
-  online_users[user.id] = {name: user.info.name}
-     
+  if(jQuery.inArray(user.id, available_users) == 0){
+    online_users[user.id] = {name: user.info.name}
+  }
   console.debug(online_users)
 }
 
