@@ -1,10 +1,8 @@
-window.online_users = {}
+window.online_users = {};
 
 window.update_users_list = function(user){
   console.log(user.id)
-  if(jQuery.inArray(user.id, available_users) != -1){
-    online_users[user.id] = {name: user.info.name}
-  }
+  online_users[user.id] = {name: user.info.name}
   console.debug(online_users)
 }
 
@@ -18,7 +16,7 @@ update_select_box = function(all_users){
     $('.online_user_select').empty();
     Object.keys(all_users).forEach(function(key) {
       //build_option = '<option value=' + key + '>' + all_users[key] '</option>';
-      if(key != $('#current_user_id').val())
+      if(key != $('#current_user_id').val() && jQuery.inArray(key, available_users) != -1)
       {
         console.debug('Adding username');
         console.debug(typeof(key));
@@ -46,15 +44,16 @@ $(document).ready(function(){
     })
     update_select_box(online_users);
     console.log(online_users)
-    login_user_channel.trigger('client-changeselectbox', {text: 'select'}) 
+    login_user_channel.trigger('client-changeselectbox', {text: 'select', free_users: available_users}) 
   });
 
 
   login_user_channel.bind('pusher:member_added', function(member) {
     update_users_list(member);
-    login_user_channel.trigger('client-changeselectbox', {text: 'select'}); 
+    login_user_channel.trigger('client-changeselectbox', {text: 'select', free_users: available_users}); 
     
-     
+    console.log('new available users');
+    console.log(available_users);
     update_select_box(online_users);
     console.log('predefined member add event')
   });
@@ -70,10 +69,15 @@ $(document).ready(function(){
   login_user_channel.bind('pusher:member_removed', function(member){
     remove_user_from_list(member);
     update_select_box(online_users);
-    login_user_channel.trigger('client-changeselectbox', {text: 'select'}) 
+    login_user_channel.trigger('client-changeselectbox', {text: 'select', free_users: available_users}) 
   });
 
   login_user_channel.bind('client-changeselectbox', function(data){
+    console.log('free users')
+    console.log(data)
+    if(data['free_users'] != undefined){
+      available_users = data['free_users']
+    }
     update_select_box(online_users);
   });
 
