@@ -2,7 +2,7 @@
   %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
   %h2 #{@win.user ? (@win.name || @win.username).humanize : 'Computer'} Won !!!
 .modal-body
-  %a.twitter-share-button.btn.btn-custom.tweet-button{href: "https://twitter.com/intent/tweet?original_referer=http://www.playbidder.in//&via=http://www.playbidder.in/&text=#{URI::escape('Played bidder game!!!')}", target: '_blank'}
-    Tweet it
-  = link_to 'Play Again', new_game_path, class: 'btn btn-primary'
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://playbidder.in" data-text="played bidder and its awesome !!!" data-via="playbidder" data-size="large" data-related="rubyconfindia" data-count="none">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  = link_to 'Play Again', new_game_path, class: 'btn btn-primary play_again'
   = link_to 'Close', '#', data: {dismiss: 'modal'}, class: 'btn pull-right'

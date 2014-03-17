@@ -189,6 +189,8 @@ body{
 }
 .play_again{
   text-align: center;
+  margin-bottom: 20px !important;
+  margin-left: 20px !important;
 }
 #rule{
   font-size: 18px;

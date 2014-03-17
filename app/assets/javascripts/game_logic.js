@@ -27,20 +27,16 @@ $(document).ready(function() {
   console.log('event fired')
   console.log(data)
   if (data['winner']) {
+    var result = ''
     if(data['win'] == 'draw'){
-    $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>Draw!!! Play Again</strong> .</p></div></div>')
-    $('#result').html('<div class="modal hide fade in" id="result" style="display: block;" aria-hidden="false"><div class="modal-header"><button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button> <h2> Draw !!!</h2></div> <div class="modal-body"><a class="twitter-share-button btn btn-custom tweet-button" href="https://twitter.com/intent/tweet?original_referer=http://www.playbidder.in//&amp;via=http://www.playbidder.in/&amp;text=Played%20bidder%20game!!!" target="_blank">Tweet it</a>     <a class="btn btn-primary" href="/games/new">Play Again</a>    <a class="btn pull-right" data-dismiss="modal" href="#">Close</a>   </div> </div>')
+      result = 'Draw !!! Play Again';
+    }
+    else{
+      result = data['winner'] + 'Won!!!';
+    }
+    $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>'+ result +'</strong> .</p></div></div>')
+    $('#result').html('<div class="modal hide fade in" id="result" style="display: block;" aria-hidden="false"><div class="modal-header"><button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button> <h2> ' + result +'</h2></div> <div class="modal-body"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://playbidder.in" data-text="played bidder and its awesome !!!" data-via="playbidder" data-size="large" data-related="rubyconfindia" data-count="none">Tweet</a><a class="btn btn-primary play_again" href="/games/new">Play Again</a>    <a class="btn pull-right" data-dismiss="modal" href="#">Close</a>   </div> </div> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>')
     $('#result').modal('show')
-    }
-    else
-    {
-      console.log(data);
-      $('#result').html('<div class="modal hide fade in" id="result" style="display: block;" aria-hidden="false"><div class="modal-header"><button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button> <h2>' + data['winner']+' Won !!!</h2></div> <div class="modal-body"><a class="twitter-share-button btn btn-custom tweet-button" href="https://twitter.com/intent/tweet?original_referer=http://www.playbidder.in//&amp;via=http://www.playbidder.in/&amp;text=Played%20bidder%20game!!!" target="_blank">Tweet it</a>     <a class="btn btn-primary" href="/games/new">Play Again</a>    <a class="btn pull-right" data-dismiss="modal" href="#">Close</a>   </div> </div>')
-      $('#result').modal('show')
-
-      $('#game_result').html('<div class="alert"><div class="alert-message success"><a class="close" href="#">×</a><p><strong>'+ data['winner'] + '  Won!</strong>. Play Again.</p></div></div>');
-
-    }
     $('#bid_form input[type="submit"]').attr('disabled', true);
     //$('#bid_form').
     $('.play_again').show();
