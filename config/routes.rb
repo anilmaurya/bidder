@@ -16,6 +16,7 @@ RailsRumble::Application.routes.draw do
   match ':username/profile' => 'users#profile', as: :user_profile, via: [:get, :post]
   match ':username/upload_profile' => 'users#upload_profile', via: :post
   match '/about_us' => 'welcome#about_us', as: :about_us, via: [:get]
+  match '/top_bidders' => 'welcome#top_bidders', as: :top_bidders, via: [:get]
 #   The priority is based upon order of creation:
 # first created -> highest priority.
 

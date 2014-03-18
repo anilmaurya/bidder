@@ -18,6 +18,7 @@ class User
   field :name, type: String
   field :email, type: String
   field :is_playing, type: Boolean, default: false
+  field :points, type: Integer, default: 0
 
   #Profile Pic
   mount_uploader :image, ImageUploader 

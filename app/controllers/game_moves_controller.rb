@@ -35,7 +35,7 @@ class GameMovesController < ApplicationController
   end
 
   def push_response
-    Pusher['presence-gamemove'].trigger("move_#{another_player.user.id.to_s}", {win: @win, winner: @win ? @win.is_a?(Player) ? (@win.name || @win.username).humanize : '' : '', result: @result, current_amount: @player.current_amount, new_game_move_path: "/game_moves/#{@new_game_move.id}", player_1_amount: @player1.current_amount, player_2_amount: @player2.current_amount, current_player: @player})
+    Pusher['presence-gamemove'].trigger("move_#{another_player.user.id.to_s}", {win: @win, winner: @win ? @win.is_a?(Player) ? (@win.name || @win.username).humanize : 'draw' : '', result: @result, current_amount: @player.current_amount, new_game_move_path: "/game_moves/#{@new_game_move.id}", player_1_amount: @player1.current_amount, player_2_amount: @player2.current_amount, current_player: @player})
   end
 
   def process_game
@@ -82,7 +82,16 @@ class GameMovesController < ApplicationController
   end
 
   def assign_result_to_game
-    @game.update_attributes(result: @win.id) if (@win && @win != 'draw')
+    if (@win && @win != 'draw')
+      @game.update_attributes(result: @win.id)
+      update_user_points
+    end
+  end
+
+  def update_user_points
+    unless @game.practise 
+      @player1 == @win ? @player1.user.inc(points: 10) && @player2.user.inc(points: -2) : @player2.user.inc(points: 10) && @player1.user.inc(points: -2)
+    end
   end
 
   def another_player

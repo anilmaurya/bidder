@@ -14,6 +14,7 @@
       .form-actions
         %button.btn.btn-warning{type: 'Submit'}
           Invite User
+        = link_to 'Refresh', '', class: 'btn btn-success'
         = link_to 'Back to Practice', practise_games_path, class: 'btn btn-primary'
 :javascript
   var available_users = #{@available_users.to_json}
