@@ -9,6 +9,8 @@ class WelcomeController < ApplicationController
 
   def about_us
     @contributors = Github.new.repos.contributors "anilmaurya", "bidder"
+  rescue
+    flash[:error] = "Internet Connection required"
   end
 
   def top_bidders
