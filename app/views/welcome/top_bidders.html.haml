@@ -9,7 +9,6 @@
       %tr
         %td= index + 1
         %td
-          = image_tag (user.image_url ? user.image_url : 'no_image.jpg'), size: '48x48'
           = user.username.humanize
         %td= user.points
 

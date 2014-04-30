@@ -5,11 +5,11 @@
   .span12.position_relative
     .screen
       .player2
-        = image_tag (@player2.user && @player2.user.image_url) || 'barney.png', size: '90x120'
+        = image_tag (@player2.user && File.exists?(Rails.root.join('public',@player2.user.image_url))) || 'barney.png', size: '90x120'
         %span.badge.badge-info.custom_badge= "$ " + @player2.current_amount.to_s
         = label_tag @player2.name || @player2.username
       .player1
-        = image_tag (@player1.user && @player1.user.image_url) || "homer.png", size: '90x120'
+        = image_tag (@player1.user && File.exists?(Rails.root.join('public',@player1.user.image_url))) || "homer.png", size: '90x120'
         %span.badge.badge-info.custom_badge= "$ " + @player1.current_amount.to_s
         = label_tag "#{ @player1.bot ? 'Computer' : (@player1.name || @player1.username) }"
       .bar_holder
