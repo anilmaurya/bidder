@@ -12,7 +12,7 @@ We used Slanger for sending and receiving request.
 
 Game is live on 
 
-http://playbidder.in
+http://bidder.herokuapp.com
 
 == TODO
 
