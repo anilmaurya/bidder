@@ -42,4 +42,4 @@
         %a.btn{data:{dismiss: 'modal'}}
           Close
 :javascript
-  window.PUSHER_API_KEY = "#{Pusher.key}"
+  window.PUSHER_API_KEY = "#{Pusher.key || ENV['PUSHER_API_KEY']}"
