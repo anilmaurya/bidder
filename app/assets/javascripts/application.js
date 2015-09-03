@@ -19,9 +19,9 @@
 //= require jquery.bpopup.min
 //= require jquery.transit.min
 $(document).ready(function(){
-  Pusher.host = '54.186.39.143'
-  Pusher.httpHost = '54.186.39.143'
-  Pusher.ws_port = '8080'
-  Pusher.wss_port = '8080'
+  //Pusher.host = '54.186.39.143'
+  //Pusher.httpHost = '54.186.39.143'
+  //Pusher.ws_port = '8080'
+  //Pusher.wss_port = '8080'
   window.pusher = new Pusher(PUSHER_API_KEY, {authEndpoint: '/pusher/authentication', authTransport: 'ajax', activityTimeout: 120000, disableStats: true});
 });
