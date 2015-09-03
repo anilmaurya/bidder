@@ -13,4 +13,4 @@
 /log/*.log
 /tmp
 /public
-config/initializers/pusher.rb
+config/initializers/keys.rb
