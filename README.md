@@ -1,0 +1,31 @@
+== Welcome to Bidder
+
+[![Code Climate](https://codeclimate.com/github/anilmaurya/bidder/badges/gpa.svg)](https://codeclimate.com/github/anilmaurya/bidder)
+
+Bidder is rails based 2 player Game.
+
+We liked idea of 'Bidding for Fun' so we built this game in Rails Rumble 2013(48 hrs online coding competition) .If you enjoy bidding for fun then you will surely enjoy this Game.
+just login with your twitter handle without any signup and challenge your friends.
+
+We used Slanger for sending and receiving request.
+
+
+Game is live on
+
+http://bidder.herokuapp.com
+
+== TODO
+
+1.Test cases(Minitest)
+
+2.Notification when user is on different browser.
+
+3.Chat with opponent.
+
+== Suggestion and Feedback
+
+If you have any suggestion or feedback then please write to us anil@joshsoftware.com || sanjiv@joshsoftware.com
+
+== Pull Request
+
+If you are intrested in working on bidder then why are you still waiting ? fork this repository and send your pull request immeadiately.
